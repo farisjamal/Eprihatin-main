@@ -35,7 +35,7 @@ export default function Resit() {
       </div>
 
       {/* Receipt Card */}
-      <div className="overflow-hidden mb-6" style={{ background: "rgba(255,255,255,0.55)", backdropFilter: "blur(20px) saturate(160%)", border: "1px solid rgba(255,255,255,0.7)", borderRadius: "16px", boxShadow: "0 4px 24px rgba(100,116,139,0.12)" }}>
+      <div className="overflow-hidden mb-6 glass-panel">
         <div className="px-6 py-4" style={{ background: "#0A2FA6" }}>
           <div className="flex items-center justify-between">
             <div>
@@ -80,7 +80,7 @@ export default function Resit() {
       </div>
 
       {/* Tax Exemption Letter */}
-      <div className="overflow-hidden mb-6" style={{ background: "rgba(255,255,255,0.55)", backdropFilter: "blur(20px) saturate(160%)", border: "1px solid rgba(255,255,255,0.7)", borderRadius: "16px", boxShadow: "0 4px 24px rgba(100,116,139,0.12)" }}>
+      <div className="overflow-hidden mb-6 glass-panel">
         <div className="px-6 py-4 flex items-center gap-3" style={{ background: "rgba(249,168,37,0.08)", borderBottom: "1px solid rgba(249,168,37,0.25)" }}>
           <FileText className="w-5 h-5 text-[#D97706]" />
           <div>

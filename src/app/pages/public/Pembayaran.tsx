@@ -60,7 +60,7 @@ export default function Pembayaran() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Summary */}
         <div className="space-y-4">
-          <div className="p-5" style={{ background: "rgba(255,255,255,0.55)", backdropFilter: "blur(20px) saturate(160%)", border: "1px solid rgba(255,255,255,0.7)", borderRadius: "16px", boxShadow: "0 4px 24px rgba(100,116,139,0.12)" }}>
+          <div className="p-5 glass-panel">
             <h2 className="font-semibold text-[#0F172A] mb-4 pb-2 border-b-2 border-[#0A2FA6] inline-block" style={{ fontWeight: 700 }}>
               Ringkasan Sumbangan
             </h2>
@@ -94,7 +94,7 @@ export default function Pembayaran() {
         </div>
 
         {/* Payment Method */}
-        <div className="p-5" style={{ background: "rgba(255,255,255,0.55)", backdropFilter: "blur(20px) saturate(160%)", border: "1px solid rgba(255,255,255,0.7)", borderRadius: "16px", boxShadow: "0 4px 24px rgba(100,116,139,0.12)" }}>
+        <div className="p-5 glass-panel">
           <h2 className="font-semibold text-[#0F172A] mb-4 pb-2 border-b-2 border-[#0A2FA6] inline-block" style={{ fontWeight: 700 }}>
             Pilih Bank (FPX)
           </h2>

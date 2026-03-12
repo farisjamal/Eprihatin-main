@@ -26,7 +26,7 @@ export default function FAQ() {
 
       <div className="space-y-3">
         {FAQS.map((faq, i) => (
-          <div key={i} className="overflow-hidden" style={{ background: "rgba(255,255,255,0.55)", backdropFilter: "blur(20px) saturate(160%)", border: "1px solid rgba(255,255,255,0.7)", borderRadius: "12px", boxShadow: "0 2px 12px rgba(100,116,139,0.08)" }}>
+          <div key={i} className="overflow-hidden glass-panel">
             <button
               onClick={() => setOpenIndex(openIndex === i ? null : i)}
               className="w-full flex items-center justify-between px-5 py-4 text-left transition-colors"

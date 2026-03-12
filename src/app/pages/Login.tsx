@@ -90,14 +90,7 @@ export default function Login() {
 
         {/* Login Card */}
         <div
-          className="overflow-hidden"
-          style={{
-            background: "rgba(255,255,255,0.55)",
-            backdropFilter: "blur(20px) saturate(160%)",
-            border: "1px solid rgba(255,255,255,0.7)",
-            borderRadius: "16px",
-            boxShadow: "0 4px 24px rgba(100,116,139,0.12), inset 0 1px 0 rgba(255,255,255,0.9)",
-          }}
+          className="overflow-hidden glass-panel"
         >
           <div
             className="px-6 py-4"
@@ -177,15 +170,7 @@ export default function Login() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full h-11 font-bold text-sm rounded-[10px] transition-all disabled:opacity-60 disabled:cursor-not-allowed"
-              style={{
-                background: "rgba(10,47,166,0.2)",
-                backdropFilter: "blur(12px) saturate(160%)",
-                border: "1px solid rgba(10,47,166,0.45)",
-                color: "#0A2FA6",
-                fontWeight: 700,
-                boxShadow: "0 2px 12px rgba(10,47,166,0.12), inset 0 1px 0 rgba(255,255,255,0.6)",
-              }}
+              className="w-full h-11 font-bold text-sm rounded-[10px] transition-all disabled:opacity-60 disabled:cursor-not-allowed glass-panel"
             >
               {loading ? "Memproses..." : "Log Masuk"}
             </button>

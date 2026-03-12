@@ -102,15 +102,8 @@ export function AdminLayout() {
     >
       {/* Sidebar */}
       <aside
-        className={`fixed top-0 left-0 h-full z-30 flex flex-col transition-all duration-300 ${
-          sidebarOpen ? "w-60" : "w-0 overflow-hidden"
-        }`}
-        style={{
-          background: "rgba(255, 255, 255, 0.55)",
-          backdropFilter: "blur(20px) saturate(160%)",
-          borderRight: "1px solid rgba(255, 255, 255, 0.7)",
-          boxShadow: "4px 0 24px rgba(100, 116, 139, 0.10), inset -1px 0 0 rgba(255,255,255,0.9)",
-        }}
+        className={`fixed top-0 left-0 h-full z-30 flex flex-col transition-all duration-300 glass-panel ${sidebarOpen ? "w-60" : "w-0 overflow-hidden"
+          }`}
       >
         {/* Logo Section */}
         <div
@@ -197,13 +190,7 @@ export function AdminLayout() {
       >
         {/* Top Header */}
         <header
-          className="h-16 flex items-center px-5 gap-4 sticky top-0 z-20"
-          style={{
-            background: "rgba(255, 255, 255, 0.75)",
-            backdropFilter: "blur(20px) saturate(160%)",
-            borderBottom: "1px solid rgba(226,232,240,0.6)",
-            boxShadow: "0 2px 12px rgba(100, 116, 139, 0.08)",
-          }}
+          className="h-16 flex items-center px-5 gap-4 sticky top-0 z-20 glass-panel"
         >
           <button
             onClick={() => setSidebarOpen(!sidebarOpen)}
@@ -250,13 +237,7 @@ export function AdminLayout() {
 
             {notifOpen && (
               <div
-                className="absolute right-0 top-11 w-80 z-50 rounded-xl overflow-hidden"
-                style={{
-                  background: "rgba(255,255,255,0.85)",
-                  backdropFilter: "blur(20px) saturate(160%)",
-                  border: "1px solid rgba(226,232,240,0.7)",
-                  boxShadow: "0 8px 32px rgba(100,116,139,0.16)",
-                }}
+                className="absolute right-0 top-11 w-80 z-50 rounded-xl overflow-hidden glass-panel"
               >
                 <div
                   className="px-4 py-3 flex items-center justify-between"

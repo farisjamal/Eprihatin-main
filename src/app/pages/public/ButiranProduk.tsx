@@ -111,7 +111,7 @@ export default function ButiranProduk() {
             </div>
           </div>
 
-          <div className="p-5" style={{ background: "rgba(255,255,255,0.55)", backdropFilter: "blur(20px) saturate(160%)", border: "1px solid rgba(255,255,255,0.7)", borderRadius: "16px", boxShadow: "0 4px 24px rgba(100,116,139,0.12)" }}>
+          <div className="p-5 glass-panel">
             <h2 className="font-semibold text-[#0F172A] mb-3 pb-2 border-b-2 border-[#0A2FA6] inline-block" style={{ fontWeight: 700 }}>
               Tentang Tabung Ini
             </h2>
@@ -137,7 +137,7 @@ export default function ButiranProduk() {
           </div>
 
           {progress !== null && (
-            <div className="p-5" style={{ background: "rgba(255,255,255,0.55)", backdropFilter: "blur(20px) saturate(160%)", border: "1px solid rgba(255,255,255,0.7)", borderRadius: "16px" }}>
+            <div className="p-5 glass-panel">
               <div className="flex justify-between text-sm mb-2">
                 <span className="text-[#64748B]">Kemajuan Sasaran</span>
                 <span className="font-semibold text-[#0A2FA6]">{Math.round(progress)}%</span>
@@ -158,7 +158,7 @@ export default function ButiranProduk() {
 
         {/* Right — Donation Form */}
         <div className="lg:col-span-2">
-          <div className="p-6 sticky top-24" style={{ background: "rgba(255,255,255,0.55)", backdropFilter: "blur(20px) saturate(160%)", border: "1px solid rgba(255,255,255,0.7)", borderRadius: "16px", boxShadow: "0 4px 24px rgba(100,116,139,0.12), inset 0 1px 0 rgba(255,255,255,0.9)" }}>
+          <div className="p-6 sticky top-24 glass-panel">
             <h2 className="font-bold text-[#0F172A] text-lg mb-5 pb-2 border-b-2 border-[#0A2FA6] inline-block" style={{ fontWeight: 700 }}>
               Borang Sumbangan
             </h2>

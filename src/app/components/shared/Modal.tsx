@@ -22,18 +22,10 @@ export function Modal({ isOpen, onClose, title, children, footer, size = "md" }:
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4"
-      style={{ backdropFilter: "blur(6px)", backgroundColor: "rgba(15,23,42,0.4)" }}
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 glass-panel"
     >
       <div
-        className={`w-full ${SIZE_MAP[size]} max-h-[90vh] flex flex-col`}
-        style={{
-          background: "rgba(255, 255, 255, 0.55)",
-          backdropFilter: "blur(20px) saturate(160%)",
-          border: "1px solid rgba(255, 255, 255, 0.7)",
-          borderRadius: "16px",
-          boxShadow: "0 4px 24px rgba(100, 116, 139, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.9)",
-        }}
+        className={`w-full ${SIZE_MAP[size]} max-h-[90vh] flex flex-col glass-panel`}
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}

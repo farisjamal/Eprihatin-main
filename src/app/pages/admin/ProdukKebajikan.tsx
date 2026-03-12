@@ -17,13 +17,7 @@ const PRODUK_LABEL: Record<string, string> = {
 
 const WAKAF_TABS = ["Semua", "Wakaf", "Endowmen"];
 
-const glassCard: React.CSSProperties = {
-  background: "rgba(255,255,255,0.55)",
-  backdropFilter: "blur(20px) saturate(160%)",
-  border: "1px solid rgba(255,255,255,0.7)",
-  borderRadius: "16px",
-  boxShadow: "0 4px 24px rgba(100,116,139,0.12), inset 0 1px 0 rgba(255,255,255,0.9)",
-};
+
 
 const inputClass = "w-full h-10 px-3 text-[#0F172A] text-sm outline-none rounded-lg";
 const inputStyle: React.CSSProperties = {
@@ -98,10 +92,10 @@ export default function AdminProdukKebajikan() {
 
   const displayed = ptj === "WAKAF" && wakafTab !== "Semua"
     ? products.filter((p) => {
-        if (wakafTab === "Wakaf") return p.nama.toLowerCase().includes("wakaf");
-        if (wakafTab === "Endowmen") return p.nama.toLowerCase().includes("endowmen");
-        return true;
-      })
+      if (wakafTab === "Wakaf") return p.nama.toLowerCase().includes("wakaf");
+      if (wakafTab === "Endowmen") return p.nama.toLowerCase().includes("endowmen");
+      return true;
+    })
     : products;
 
   return (
@@ -115,15 +109,7 @@ export default function AdminProdukKebajikan() {
         </div>
         <button
           onClick={openAdd}
-          className="inline-flex items-center gap-2 px-4 h-10 text-sm rounded-[10px] transition-all"
-          style={{
-            background: "rgba(10,47,166,0.2)",
-            backdropFilter: "blur(12px) saturate(160%)",
-            border: "1px solid rgba(10,47,166,0.45)",
-            color: "#0A2FA6",
-            fontWeight: 600,
-            boxShadow: "0 2px 12px rgba(10,47,166,0.12), inset 0 1px 0 rgba(255,255,255,0.6)",
-          }}
+          className="inline-flex items-center gap-2 px-4 h-10 text-sm rounded-[10px] transition-all glass-panel"
         >
           <Plus className="w-4 h-4" />
           Tambah Produk
@@ -151,7 +137,7 @@ export default function AdminProdukKebajikan() {
       )}
 
       {/* Table */}
-      <div style={{ ...glassCard, overflow: "hidden" }}>
+      <div className="glass-panel" style={{ overflow: "hidden" }}>
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
             <thead>

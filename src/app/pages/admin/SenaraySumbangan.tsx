@@ -6,13 +6,7 @@ import { StatusBadge } from "../../components/shared/StatusBadge";
 import { Modal } from "../../components/shared/Modal";
 import { Breadcrumb } from "../../components/shared/Breadcrumb";
 
-const glassCard: React.CSSProperties = {
-  background: "rgba(255,255,255,0.55)",
-  backdropFilter: "blur(20px) saturate(160%)",
-  border: "1px solid rgba(255,255,255,0.7)",
-  borderRadius: "16px",
-  boxShadow: "0 4px 24px rgba(100,116,139,0.12), inset 0 1px 0 rgba(255,255,255,0.9)",
-};
+
 
 export default function SenaraySumbangan() {
   const { currentAdmin } = useAuth();
@@ -113,7 +107,7 @@ export default function SenaraySumbangan() {
       </div>
 
       {/* Table */}
-      <div style={{ ...glassCard, overflow: "hidden" }}>
+      <div className="glass-panel" style={{ overflow: "hidden" }}>
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
             <thead>

@@ -4,13 +4,7 @@ import { SALARY_DEDUCTIONS } from "../../../data/mockData";
 import { StatusBadge } from "../../../components/shared/StatusBadge";
 import { Breadcrumb } from "../../../components/shared/Breadcrumb";
 
-const glassCard: React.CSSProperties = {
-  background: "rgba(255,255,255,0.55)",
-  backdropFilter: "blur(20px) saturate(160%)",
-  border: "1px solid rgba(255,255,255,0.7)",
-  borderRadius: "16px",
-  boxShadow: "0 4px 24px rgba(100,116,139,0.12), inset 0 1px 0 rgba(255,255,255,0.9)",
-};
+
 
 export default function KelulusanPotongan() {
   const approved = SALARY_DEDUCTIONS.filter((d) => d.status === "Lulus");
@@ -23,7 +17,7 @@ export default function KelulusanPotongan() {
         <p className="text-[#64748B] text-sm mt-0.5">{approved.length} rekod diluluskan</p>
       </div>
 
-      <div style={{ ...glassCard, overflow: "hidden" }}>
+      <div className="glass-panel" style={{ overflow: "hidden" }}>
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
             <thead>

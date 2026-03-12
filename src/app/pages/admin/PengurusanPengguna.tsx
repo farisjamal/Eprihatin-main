@@ -56,15 +56,7 @@ export default function PengurusanPengguna() {
         </div>
         <button
           onClick={() => setAddModal(true)}
-          className="inline-flex items-center gap-2 px-4 h-10 text-sm rounded-[10px] transition-all"
-          style={{
-            background: "rgba(10,47,166,0.2)",
-            backdropFilter: "blur(12px) saturate(160%)",
-            border: "1px solid rgba(10,47,166,0.45)",
-            color: "#0A2FA6",
-            fontWeight: 600,
-            boxShadow: "0 2px 12px rgba(10,47,166,0.12), inset 0 1px 0 rgba(255,255,255,0.6)",
-          }}
+          className="inline-flex items-center gap-2 px-4 h-10 text-sm rounded-[10px] transition-all glass-panel"
         >
           <Plus className="w-4 h-4" />
           Tambah Pengguna
@@ -91,7 +83,7 @@ export default function PengurusanPengguna() {
       </div>
 
       {/* Table */}
-      <div className="bg-white border border-[#E2E8F0] rounded-2xl overflow-hidden" style={{ background: "rgba(255,255,255,0.55)", backdropFilter: "blur(20px) saturate(160%)", border: "1px solid rgba(255,255,255,0.7)", borderRadius: "16px", boxShadow: "0 4px 24px rgba(100,116,139,0.12), inset 0 1px 0 rgba(255,255,255,0.9)" }}>
+      <div className="bg-white border border-[#E2E8F0] rounded-2xl overflow-hidden glass-panel">
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
             <thead>

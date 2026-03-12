@@ -4,13 +4,7 @@ import { useAuth } from "../../context/AuthContext";
 import { Breadcrumb } from "../../components/shared/Breadcrumb";
 import { PTJ_CONFIGS } from "../../data/mockData";
 
-const glassCard: React.CSSProperties = {
-  background: "rgba(255,255,255,0.55)",
-  backdropFilter: "blur(20px) saturate(160%)",
-  border: "1px solid rgba(255,255,255,0.7)",
-  borderRadius: "16px",
-  boxShadow: "0 4px 24px rgba(100,116,139,0.12), inset 0 1px 0 rgba(255,255,255,0.9)",
-};
+
 
 const inputStyle: React.CSSProperties = {
   width: "100%",
@@ -53,7 +47,7 @@ export default function Cetakan() {
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Print Settings */}
-        <div className="p-5 space-y-4" style={glassCard}>
+        <div className="p-5 space-y-4 glass-panel">
           <h2 className="font-semibold text-[#0F172A] pb-2 border-b-2 border-[#0A2FA6] inline-block" style={{ fontWeight: 700 }}>
             Tetapan Laporan
           </h2>
@@ -160,7 +154,7 @@ export default function Cetakan() {
 
         {/* Preview */}
         <div className="lg:col-span-2">
-          <div style={{ ...glassCard, overflow: "hidden", height: "100%" }}>
+          <div className="glass-panel" style={{ overflow: "hidden", height: "100%" }}>
             <div
               className="px-5 py-4 flex items-center gap-3"
               style={{ borderBottom: "1px solid rgba(226,232,240,0.6)", background: "rgba(248,249,251,0.8)" }}

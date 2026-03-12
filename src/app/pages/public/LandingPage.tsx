@@ -45,13 +45,13 @@ export default function LandingPage() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="relative min-h-[600px] flex items-center overflow-hidden">
+      <section className="relative min-h-screen flex items-center overflow-hidden">
         <div
           className="absolute inset-0 bg-center bg-cover"
           style={{ backgroundImage: `url(${CAMPUS_IMAGE})` }}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-[#0A2FA6]/95 via-[#0A2FA6]/85 to-[#4D9FFF]/50" />
-        <div className="relative z-10 max-w-7xl mx-auto px-6 py-20">
+        <div className="relative z-10 max-w-7xl mx-auto px-6 pt-20 pb-48 md:pt-24 md:pb-56">
           <div className="max-w-2xl">
             <div className="inline-flex items-center gap-2 bg-[#F9A825]/20 border border-[#F9A825]/40 rounded-full px-4 py-1.5 mb-6">
               <Heart className="w-4 h-4 text-[#F9A825]" fill="#F9A825" />
@@ -88,14 +88,24 @@ export default function LandingPage() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-10" style={{ background: "#0A2FA6" }}>
+      <section className="relative z-20 -mt-[160px] md:-mt-[180px] pb-16">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {STATS.map((stat, i) => (
-              <div key={i} className="text-center">
-                <div className="flex justify-center mb-2">{stat.icon}</div>
-                <p className="text-2xl font-bold text-white">{stat.value}</p>
-                <p className="text-xs text-white/70 mt-1">{stat.label}</p>
+              <div
+                key={i}
+                className="text-center p-6 rounded-2xl transition-all duration-300 hover:-translate-y-1"
+                style={{
+                  background: "rgba(255, 255, 255, 0.05)",
+                  backdropFilter: "blur(12px)",
+                  WebkitBackdropFilter: "blur(12px)",
+                  border: "1px solid rgba(255, 255, 255, 0.1)",
+                  boxShadow: "0 8px 32px rgba(30, 58, 138, 0.2)"
+                }}
+              >
+                <div className="flex justify-center mb-3 transform hover:scale-110 transition-transform">{stat.icon}</div>
+                <p className="text-3xl font-bold text-white mb-1">{stat.value}</p>
+                <p className="text-sm font-medium text-white/80">{stat.label}</p>
               </div>
             ))}
           </div>
@@ -103,7 +113,7 @@ export default function LandingPage() {
       </section>
 
       {/* PTj Tabs + Products */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-gradient-to-b from-white to-[#F8FAFC]">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-10">
             <h2 className="text-3xl font-bold text-[#0F172A] mb-3">Produk Kebajikan UTHM</h2>
@@ -141,14 +151,7 @@ export default function LandingPage() {
               return (
                 <div
                   key={product.id}
-                  className="rounded-2xl p-5 hover:-translate-y-0.5 group transition-all cursor-pointer"
-                  style={{
-                    background: "rgba(255,255,255,0.55)",
-                    backdropFilter: "blur(20px) saturate(160%)",
-                    border: "1px solid rgba(255,255,255,0.7)",
-                    borderRadius: "16px",
-                    boxShadow: "0 4px 24px rgba(100,116,139,0.12), inset 0 1px 0 rgba(255,255,255,0.9)",
-                  }}
+                  className="rounded-2xl p-5 hover:-translate-y-0.5 group transition-all cursor-pointer glass-panel"
                   onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.border = "1px solid rgba(10,47,166,0.3)")}
                   onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.border = "1px solid rgba(255,255,255,0.7)")}
                 >
@@ -242,7 +245,7 @@ export default function LandingPage() {
       </section>
 
       {/* How It Works */}
-      <section className="py-16" style={{ background: "#F8F9FB" }}>
+      <section className="py-16 bg-gradient-to-b from-[#F8FAFC] to-white">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-[#0F172A] mb-3">Cara Menderma</h2>
@@ -274,14 +277,14 @@ export default function LandingPage() {
       </section>
 
       {/* Testimonials */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-gradient-to-b from-white to-[#F8FAFC]">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-10">
             <h2 className="text-3xl font-bold text-[#0F172A] mb-3">Apa Kata Penyumbang Kami</h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {TESTIMONIALS.map((t, i) => (
-              <div key={i} className="rounded-xl p-6" style={{ background: "rgba(255,255,255,0.55)", backdropFilter: "blur(20px) saturate(160%)", border: "1px solid rgba(255,255,255,0.7)", borderRadius: "16px", boxShadow: "0 4px 24px rgba(100,116,139,0.12), inset 0 1px 0 rgba(255,255,255,0.9)" }}>
+              <div key={i} className="rounded-xl p-6 glass-panel">
                 <Quote className="w-6 h-6 text-[#4D9FFF] mb-3 opacity-70" />
                 <p className="text-sm text-[#0F172A] leading-relaxed mb-4 italic">"{t.quote}"</p>
                 <div className="flex items-center gap-3">
@@ -300,7 +303,7 @@ export default function LandingPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16" style={{ background: "#0A2FA6" }}>
+      <section className="py-16 bg-gradient-to-b from-[#1E40AF] to-[#1E3A8A]">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <h2 className="text-3xl font-bold text-white mb-4">Mulakan Perjalanan Memberi Anda Hari Ini</h2>
           <p className="text-white/80 mb-8 max-w-xl mx-auto">

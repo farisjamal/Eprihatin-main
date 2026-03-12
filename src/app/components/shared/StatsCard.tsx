@@ -21,14 +21,7 @@ export function StatsCard({
 }: StatsCardProps) {
   return (
     <div
-      className="rounded-2xl p-5 hover:shadow-lg transition-shadow"
-      style={{
-        background: "rgba(255, 255, 255, 0.55)",
-        backdropFilter: "blur(20px) saturate(160%)",
-        border: "1px solid rgba(255, 255, 255, 0.7)",
-        borderRadius: "16px",
-        boxShadow: "0 4px 24px rgba(100, 116, 139, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.9)",
-      }}
+      className="rounded-2xl p-5 hover:shadow-lg transition-shadow glass-panel"
     >
       <div className="flex items-start justify-between">
         <div className="flex-1">

@@ -9,13 +9,7 @@ import { Breadcrumb } from "../../../components/shared/Breadcrumb";
 const formatRM = (n: number) =>
   new Intl.NumberFormat("ms-MY", { style: "currency", currency: "MYR", maximumFractionDigits: 0 }).format(n);
 
-const glassCard: React.CSSProperties = {
-  background: "rgba(255,255,255,0.55)",
-  backdropFilter: "blur(20px) saturate(160%)",
-  border: "1px solid rgba(255,255,255,0.7)",
-  borderRadius: "16px",
-  boxShadow: "0 4px 24px rgba(100,116,139,0.12), inset 0 1px 0 rgba(255,255,255,0.9)",
-};
+
 
 const PTJ_COLORS: Record<string, string> = {
   PHEP: "#4D9FFF",
@@ -55,7 +49,7 @@ export default function TncStatistik() {
       </div>
 
       {/* Top 10 Bar Chart */}
-      <div className="p-5" style={glassCard}>
+      <div className="p-5 glass-panel">
         <h2 className="font-semibold text-[#0F172A] mb-4 pb-2 border-b-2 border-[#0A2FA6] inline-block" style={{ fontWeight: 700 }}>
           10 Produk Tertinggi Mengikut Jumlah Sumbangan
         </h2>
@@ -63,7 +57,7 @@ export default function TncStatistik() {
           <ResponsiveContainer width="100%" height="100%">
             <BarChart data={barData} layout="vertical">
               <CartesianGrid strokeDasharray="3 3" stroke="#E2E8F0" horizontal={false} />
-              <XAxis type="number" tick={{ fontSize: 10 }} tickFormatter={(v) => `${(v/1000).toFixed(0)}k`} />
+              <XAxis type="number" tick={{ fontSize: 10 }} tickFormatter={(v) => `${(v / 1000).toFixed(0)}k`} />
               <YAxis type="category" dataKey="nama" tick={{ fontSize: 9 }} width={110} />
               <Tooltip formatter={(v: number) => formatRM(v)} />
               <Bar dataKey="jumlah" fill="#4D9FFF" name="Jumlah (RM)" radius={[0, 4, 4, 0]} />
@@ -73,7 +67,7 @@ export default function TncStatistik() {
       </div>
 
       {/* All products table */}
-      <div style={{ ...glassCard, overflow: "hidden" }}>
+      <div className="glass-panel" style={{ overflow: "hidden" }}>
         <div className="px-5 py-4" style={{ borderBottom: "1px solid rgba(226,232,240,0.6)" }}>
           <h2 className="font-semibold text-[#0F172A]" style={{ fontWeight: 700 }}>Semua Produk Aktif</h2>
         </div>

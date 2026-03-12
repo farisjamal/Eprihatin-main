@@ -96,14 +96,7 @@ export default function ProdukKebajikan() {
             return (
               <div
                 key={product.id}
-                className="rounded-2xl p-5 hover:-translate-y-0.5 flex flex-col transition-all"
-                style={{
-                  background: "rgba(255,255,255,0.55)",
-                  backdropFilter: "blur(20px) saturate(160%)",
-                  border: "1px solid rgba(255,255,255,0.7)",
-                  borderRadius: "16px",
-                  boxShadow: "0 4px 24px rgba(100,116,139,0.12), inset 0 1px 0 rgba(255,255,255,0.9)",
-                }}
+                className="rounded-2xl p-5 hover:-translate-y-0.5 flex flex-col transition-all glass-panel"
                 onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.border = "1px solid rgba(10,47,166,0.3)")}
                 onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.border = "1px solid rgba(255,255,255,0.7)")}
               >

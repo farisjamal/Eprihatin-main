@@ -54,7 +54,7 @@ export default function TetapanSistem() {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* General Settings */}
-        <div className="p-5 space-y-4" style={{ background: "rgba(255,255,255,0.55)", backdropFilter: "blur(20px) saturate(160%)", border: "1px solid rgba(255,255,255,0.7)", borderRadius: "16px", boxShadow: "0 4px 24px rgba(100,116,139,0.12), inset 0 1px 0 rgba(255,255,255,0.9)" }}>
+        <div className="p-5 space-y-4 glass-panel">
           <div className="flex items-center gap-2 mb-2">
             <Globe className="w-5 h-5 text-[#0A2FA6]" />
             <h2 className="font-semibold text-[#0F172A]" style={{ fontWeight: 700 }}>Tetapan Umum</h2>
@@ -83,7 +83,7 @@ export default function TetapanSistem() {
 
         {/* Notification Settings */}
         <div className="space-y-4">
-          <div className="p-5 space-y-4" style={{ background: "rgba(255,255,255,0.55)", backdropFilter: "blur(20px) saturate(160%)", border: "1px solid rgba(255,255,255,0.7)", borderRadius: "16px", boxShadow: "0 4px 24px rgba(100,116,139,0.12), inset 0 1px 0 rgba(255,255,255,0.9)" }}>
+          <div className="p-5 space-y-4 glass-panel">
             <div className="flex items-center gap-2 mb-2">
               <Bell className="w-5 h-5 text-[#0A2FA6]" />
               <h2 className="font-semibold text-[#0F172A]" style={{ fontWeight: 700 }}>Tetapan Notifikasi</h2>
@@ -106,7 +106,7 @@ export default function TetapanSistem() {
             ))}
           </div>
 
-          <div className="p-5" style={{ background: "rgba(255,255,255,0.55)", backdropFilter: "blur(20px) saturate(160%)", border: "1px solid rgba(255,255,255,0.7)", borderRadius: "16px", boxShadow: "0 4px 24px rgba(100,116,139,0.12), inset 0 1px 0 rgba(255,255,255,0.9)" }}>
+          <div className="p-5 glass-panel">
             <div className="flex items-center gap-2 mb-4">
               <Shield className="w-5 h-5 text-[#0A2FA6]" />
               <h2 className="font-semibold text-[#0F172A]" style={{ fontWeight: 700 }}>Keselamatan Sistem</h2>

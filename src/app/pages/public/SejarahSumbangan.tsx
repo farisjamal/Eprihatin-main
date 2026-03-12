@@ -235,7 +235,7 @@ export default function SejarahSumbangan() {
           </div>
 
           {results.length > 0 && (
-            <div className="overflow-hidden" style={{ background: "rgba(255,255,255,0.55)", backdropFilter: "blur(20px) saturate(160%)", border: "1px solid rgba(255,255,255,0.7)", borderRadius: "16px", boxShadow: "0 4px 24px rgba(100,116,139,0.12)" }}>
+            <div className="overflow-hidden glass-panel">
               <div className="px-5 py-3.5 flex items-center gap-2" style={{ borderBottom: "1px solid rgba(226,232,240,0.6)" }}>
                 <ClipboardList className="w-4 h-4 text-[#0A2FA6]" />
                 <h2 className="text-sm font-semibold text-[#0F172A]">
@@ -324,7 +324,7 @@ export default function SejarahSumbangan() {
           )}
 
           {results.length === 0 && (
-            <div className="rounded-xl p-8 text-center" style={{ background: "rgba(255,255,255,0.55)", backdropFilter: "blur(20px) saturate(160%)", border: "1px solid rgba(255,255,255,0.7)", borderRadius: "16px" }}>
+            <div className="rounded-xl p-8 text-center glass-panel">
               <div className="w-14 h-14 rounded-full flex items-center justify-center mx-auto mb-3" style={{ background: "#F8F9FB" }}>
                 <ClipboardList className="w-6 h-6 text-[#CBD5E1]" />
               </div>

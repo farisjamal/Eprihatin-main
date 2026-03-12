@@ -14,13 +14,7 @@ const PIE_COLORS = ["#4D9FFF", "#F9A825", "#0A2FA6", "#7C3AED", "#DC2626", "#089
 const formatRM = (n: number) =>
   new Intl.NumberFormat("ms-MY", { style: "currency", currency: "MYR", maximumFractionDigits: 0 }).format(n);
 
-const glassCard: React.CSSProperties = {
-  background: "rgba(255,255,255,0.55)",
-  backdropFilter: "blur(20px) saturate(160%)",
-  border: "1px solid rgba(255,255,255,0.7)",
-  borderRadius: "16px",
-  boxShadow: "0 4px 24px rgba(100,116,139,0.12), inset 0 1px 0 rgba(255,255,255,0.9)",
-};
+
 
 export default function Laporan() {
   const { currentAdmin } = useAuth();
@@ -143,7 +137,7 @@ export default function Laporan() {
       {/* Charts */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Bar Chart */}
-        <div className="lg:col-span-2 p-5" style={glassCard}>
+        <div className="lg:col-span-2 p-5 glass-panel">
           <h2 className="font-semibold text-[#0F172A] mb-4 pb-2 border-b-2 border-[#0A2FA6] inline-block" style={{ fontWeight: 700 }}>
             Trend Sumbangan Bulanan (2025)
           </h2>
@@ -153,7 +147,7 @@ export default function Laporan() {
                 <BarChart data={MONTHLY_DONATIONS}>
                   <CartesianGrid strokeDasharray="3 3" stroke="#E2E8F0" />
                   <XAxis dataKey="bulan" tick={{ fontSize: 10 }} />
-                  <YAxis tick={{ fontSize: 10 }} tickFormatter={(v) => `${(v/1000).toFixed(0)}k`} />
+                  <YAxis tick={{ fontSize: 10 }} tickFormatter={(v) => `${(v / 1000).toFixed(0)}k`} />
                   <Tooltip formatter={(v: number) => formatRM(v)} />
                   <Legend wrapperStyle={{ fontSize: 10 }} />
                   <Bar dataKey="PHEP" fill="#4D9FFF" name="PHEP" stackId="a" />
@@ -167,7 +161,7 @@ export default function Laporan() {
                 <BarChart data={chartData}>
                   <CartesianGrid strokeDasharray="3 3" stroke="#E2E8F0" />
                   <XAxis dataKey="bulan" tick={{ fontSize: 10 }} />
-                  <YAxis tick={{ fontSize: 10 }} tickFormatter={(v) => `${(v/1000).toFixed(0)}k`} />
+                  <YAxis tick={{ fontSize: 10 }} tickFormatter={(v) => `${(v / 1000).toFixed(0)}k`} />
                   <Tooltip formatter={(v: number) => formatRM(v)} />
                   <Bar dataKey="jumlah" fill="#4D9FFF" name="Jumlah Sumbangan (RM)" radius={[4, 4, 0, 0]} />
                 </BarChart>
@@ -177,7 +171,7 @@ export default function Laporan() {
         </div>
 
         {/* Pie Chart */}
-        <div className="p-5" style={glassCard}>
+        <div className="p-5 glass-panel">
           <h2 className="font-semibold text-[#0F172A] mb-4 pb-2 border-b-2 border-[#0A2FA6] inline-block text-sm" style={{ fontWeight: 700 }}>
             {isReadonly ? "Mengikut PTj" : "Mengikut Kaedah Bayaran"}
           </h2>
@@ -222,7 +216,7 @@ export default function Laporan() {
       </div>
 
       {/* Product Summary Table */}
-      <div style={{ ...glassCard, overflow: "hidden" }}>
+      <div className="glass-panel" style={{ overflow: "hidden" }}>
         <div className="px-5 py-4" style={{ borderBottom: "1px solid rgba(226,232,240,0.6)" }}>
           <h2 className="font-semibold text-[#0F172A]" style={{ fontWeight: 700 }}>Ringkasan Mengikut Produk</h2>
         </div>
