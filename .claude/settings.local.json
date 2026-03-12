@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx knip:*)",
+      "Bash(npx depcheck:*)",
+      "Bash(npm run build:*)"
+    ]
+  }
+}
