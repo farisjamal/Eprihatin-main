@@ -8,7 +8,6 @@ import {
   ArrowRight,
   CheckCircle,
   AlertCircle,
-  ChevronRight,
 } from "lucide-react";
 import { DONATIONS } from "../../data/mockData";
 import { StatusBadge } from "../../components/shared/StatusBadge";
@@ -45,7 +44,12 @@ export default function SejarahSumbangan() {
 
   const validate = () => {
     const e: { ic?: string; emel?: string } = {};
-    if (!form.ic.trim()) e.ic = "No. Kad Pengenalan / Passport diperlukan.";
+    const IC_REGEX = /^\d{6}-\d{2}-\d{4}$|^\d{12}$/;
+    if (!form.ic.trim()) {
+      e.ic = "No. Kad Pengenalan diperlukan.";
+    } else if (!IC_REGEX.test(form.ic.trim())) {
+      e.ic = "Format tidak sah. Contoh: 880512-01-5678";
+    }
     if (!form.emel.trim()) e.emel = "Alamat e-mel diperlukan.";
     else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.emel))
       e.emel = "Format e-mel tidak sah.";
@@ -63,7 +67,7 @@ export default function SejarahSumbangan() {
     const found = DONATIONS.filter(
       (d) =>
         d.noKadPengenalan.replace(/-/g, "") ===
-          form.ic.replace(/-/g, "").trim() &&
+        form.ic.replace(/-/g, "").trim() &&
         d.emel.toLowerCase() === form.emel.trim().toLowerCase()
     );
     setResults(found);
@@ -78,10 +82,9 @@ export default function SejarahSumbangan() {
   };
 
   const inputClass = (field: keyof typeof errors) =>
-    `w-full h-11 px-4 border rounded-lg text-sm focus:outline-none focus:ring-2 transition-colors ${
-      errors[field]
-        ? "border-[#DC2626] focus:ring-[#DC2626]/20"
-        : "border-[#E2E8F0] focus:border-[#0A2FA6] focus:ring-[#0A2FA6]/20"
+    `w-full h-11 px-4 border rounded-lg text-sm focus:outline-none focus:ring-2 transition-colors ${errors[field]
+      ? "border-[#DC2626] focus:ring-[#DC2626]/20"
+      : "border-[#E2E8F0] focus:border-[#0A2FA6] focus:ring-[#0A2FA6]/20"
     }`;
 
   return (
@@ -171,8 +174,7 @@ export default function SejarahSumbangan() {
             {!submitted ? (
               <button
                 type="submit"
-                className="h-11 px-8 text-white font-semibold text-sm rounded-[10px] transition-all flex items-center gap-2"
-                style={{ background: "#0A2FA6", boxShadow: "0 2px 12px rgba(10,47,166,0.25)" }}
+                className="h-11 px-8 text-sm flex items-center gap-2 btn-primary"
               >
                 <Search className="w-4 h-4" />
                 Semak Sekarang
@@ -181,8 +183,7 @@ export default function SejarahSumbangan() {
               <button
                 type="button"
                 onClick={handleReset}
-                className="h-11 px-8 text-sm rounded-[10px] font-medium transition-all"
-                style={{ border: "1px solid #E2E8F0", color: "#64748B", background: "transparent" }}
+                className="h-11 px-8 text-sm btn-secondary"
               >
                 Semak Semula
               </button>
@@ -330,11 +331,6 @@ export default function SejarahSumbangan() {
               </div>
               <p className="text-sm font-medium text-[#94A3B8]">Tiada rekod sumbangan dijumpai untuk maklumat ini.</p>
               <p className="text-xs text-[#CBD5E1] mt-1">Sila pastikan No. Kad Pengenalan dan e-mel yang dimasukkan adalah tepat.</p>
-              <p className="text-xs text-[#F9A825] mt-3">
-                (Demo: cuba IC{" "}
-                <code className="font-mono bg-[#FFFBEB] px-1 rounded">880512-01-5678</code> dan e-mel{" "}
-                <code className="font-mono bg-[#FFFBEB] px-1 rounded">ahmad.faris@uthm.edu.my</code>)
-              </p>
             </div>
           )}
         </div>

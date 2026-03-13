@@ -18,7 +18,7 @@ export function PublicLayout() {
   const isHome = location.pathname === "/";
 
   return (
-    <div className="min-h-screen flex flex-col relative" style={{ fontFamily: "'Inter', system-ui, sans-serif", background: "#F8F9FB" }}>
+    <div className={`min-h-screen flex flex-col relative ${!isHome ? 'spatial-ui' : ''}`} style={{ fontFamily: "'Inter', system-ui, sans-serif", background: !isHome ? "var(--surface)" : "#F8F9FB" }}>
       {/* Header */}
       <div className="fixed top-4 left-0 right-0 z-50 px-4 max-w-7xl mx-auto w-full">
         <header
@@ -62,7 +62,7 @@ export function PublicLayout() {
             <div className="hidden md:flex items-center gap-3">
               <button
                 onClick={() => navigate("/login")}
-                className="px-5 h-10 font-semibold text-sm rounded-[10px] transition-all glass-panel"
+                className="px-5 h-10 font-semibold text-sm rounded-[10px] transition-all btn-primary"
               >
                 Log Masuk
               </button>
@@ -96,13 +96,7 @@ export function PublicLayout() {
               ))}
               <button
                 onClick={() => navigate("/login")}
-                className="w-full h-10 font-semibold text-sm rounded-full"
-                style={{
-                  background: "rgba(10,47,166,0.15)",
-                  border: "1px solid rgba(10,47,166,0.35)",
-                  color: "#0A2FA6",
-                  fontWeight: 600,
-                }}
+                className="w-full h-10 font-semibold text-sm rounded-full btn-primary"
               >
                 Log Masuk
               </button>

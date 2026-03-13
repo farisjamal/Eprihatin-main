@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Download, Eye, Search } from "lucide-react";
 import { useAuth } from "../../context/AuthContext";
-import { DONATIONS, WELFARE_PRODUCTS } from "../../data/mockData";
+import { DONATIONS } from "../../data/mockData";
 import { StatusBadge } from "../../components/shared/StatusBadge";
 import { Modal } from "../../components/shared/Modal";
 import { Breadcrumb } from "../../components/shared/Breadcrumb";
@@ -14,7 +14,7 @@ export default function SenaraySumbangan() {
 
   const ptj = currentAdmin.ptj;
   const isReadonly = currentAdmin.peranan === "readonly";
-  const baseDonations = isReadonly ? DONATIONS : DONATIONS.filter((d) => d.ptj === ptj || DONATIONS.some(() => true));
+  const baseDonations = isReadonly ? DONATIONS : DONATIONS.filter((d) => d.ptj === ptj);
 
   const [search, setSearch] = useState("");
   const [statusFilter, setStatusFilter] = useState("Semua");

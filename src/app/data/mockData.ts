@@ -167,18 +167,18 @@ export const MONTHLY_DONATIONS = [
 // ─── DONATIONS LIST ──────────────────────────────────────────────────────────
 
 export const DONATIONS: Donation[] = [
-  { id: "D001", tarikhMasa: "2025-03-05 09:23", noRujukan: "EP-2025-0001", namaPenyumbang: "Ahmad Faris bin Zulkifli", noKadPengenalan: "880512-01-5678", emel: "ahmad.faris@uthm.edu.my", noTelefon: "0123456789", jenisPenyumbang: "Staf UTHM", produk: "Dana Wang Ihsan Am", ptj: "PHEP", jumlah: 500, kaedahBayaran: "Potongan Gaji", status: "Berjaya" },
-  { id: "D002", tarikhMasa: "2025-03-05 10:45", noRujukan: "EP-2025-0002", namaPenyumbang: "Siti Nurhaliza binti Mahmud", noKadPengenalan: "920315-07-2345", emel: "siti@gmail.com", noTelefon: "0134567890", jenisPenyumbang: "Alumni", produk: "Wakaf Am UTHM", ptj: "WAKAF", jumlah: 1000, kaedahBayaran: "Wakaf & Endowmen", status: "Berjaya" },
-  { id: "D003", tarikhMasa: "2025-03-05 11:12", noRujukan: "EP-2025-0003", namaPenyumbang: "Mohd Hafiz bin Roslan", noKadPengenalan: "750820-03-4567", emel: "hafiz@company.com", noTelefon: "0167890123", jenisPenyumbang: "Industri", produk: "Endowmen Kursi Profesor", ptj: "WAKAF", jumlah: 5000, kaedahBayaran: "FPX", status: "Berjaya" },
-  { id: "D004", tarikhMasa: "2025-03-04 14:30", noRujukan: "EP-2025-0004", namaPenyumbang: "Nurul Ain binti Hamdan", noKadPengenalan: "950202-04-8901", emel: "nurul@gmail.com", noTelefon: "0198901234", jenisPenyumbang: "Orang Awam", produk: "Zakat Fitrah UTHM", ptj: "PUSAT_ISLAM", jumlah: 25, kaedahBayaran: "FPX", status: "Berjaya" },
-  { id: "D005", tarikhMasa: "2025-03-04 15:22", noRujukan: "EP-2025-0005", namaPenyumbang: "Razif bin Abdullah", noKadPengenalan: "830614-08-3456", emel: "razif@uthm.edu.my", noTelefon: "0112345678", jenisPenyumbang: "Staf UTHM", produk: "Dana Bantuan Kecemasan Pelajar", ptj: "PHEP", jumlah: 200, kaedahBayaran: "Potongan Gaji", status: "Dalam Proses" },
-  { id: "D006", tarikhMasa: "2025-03-04 16:45", noRujukan: "EP-2025-0006", namaPenyumbang: "Faridah binti Salleh", noKadPengenalan: "780925-05-6789", emel: "faridah@gmail.com", noTelefon: "0123459876", jenisPenyumbang: "Orang Awam", produk: "Tabung Yayasan UTHM", ptj: "YAYASAN", jumlah: 500, kaedahBayaran: "Wakaf & Endowmen", status: "Berjaya" },
-  { id: "D007", tarikhMasa: "2025-03-03 09:15", noRujukan: "EP-2025-0007", namaPenyumbang: "Azman bin Che Mat", noKadPengenalan: "861120-06-1234", emel: "azman@uthm.edu.my", noTelefon: "0145678901", jenisPenyumbang: "Staf UTHM", produk: "Zakat Pendapatan", ptj: "PUSAT_ISLAM", jumlah: 340, kaedahBayaran: "Potongan Gaji", status: "Berjaya" },
-  { id: "D008", tarikhMasa: "2025-03-03 10:30", noRujukan: "EP-2025-0008", namaPenyumbang: "Tan Mei Ling", noKadPengenalan: "900430-10-5678", emel: "meilin@company.com", noTelefon: "0167891234", jenisPenyumbang: "Industri", produk: "Wakaf Penyelidikan & Inovasi", ptj: "WAKAF", jumlah: 2000, kaedahBayaran: "Pindahan Bank", status: "Berjaya" },
-  { id: "D009", tarikhMasa: "2025-03-03 14:20", noRujukan: "EP-2025-0009", namaPenyumbang: "Hasnah binti Ismail", noKadPengenalan: "840712-02-9012", emel: "hasnah@gmail.com", noTelefon: "0112344321", jenisPenyumbang: "Orang Awam", produk: "Dana Wang Ihsan Am", ptj: "PHEP", jumlah: 100, kaedahBayaran: "FPX", status: "Gagal" },
-  { id: "D010", tarikhMasa: "2025-03-02 11:45", noRujukan: "EP-2025-0010", namaPenyumbang: "Shahrizal bin Kamarudin", noKadPengenalan: "791005-07-3456", emel: "shahrizal@uthm.edu.my", noTelefon: "0198765432", jenisPenyumbang: "Staf UTHM", produk: "Dana Pelajar Asnaf", ptj: "PUSAT_ISLAM", jumlah: 150, kaedahBayaran: "Potongan Gaji", status: "Berjaya" },
-  { id: "D011", tarikhMasa: "2025-03-02 13:10", noRujukan: "EP-2025-0011", namaPenyumbang: "Rosmah binti Othman", noKadPengenalan: "870324-08-7890", emel: "rosmah@alumni.uthm.edu.my", noTelefon: "0134561234", jenisPenyumbang: "Alumni", produk: "Biasiswa Yayasan UTHM", ptj: "YAYASAN", jumlah: 300, kaedahBayaran: "FPX", status: "Berjaya" },
-  { id: "D012", tarikhMasa: "2025-03-01 09:00", noRujukan: "EP-2025-0012", namaPenyumbang: "Khairul Nizam bin Hassan", noKadPengenalan: "920815-03-2109", emel: "khairul@company.com", noTelefon: "0167894567", jenisPenyumbang: "Industri", produk: "Tabung Perubatan Pelajar", ptj: "KESIHATAN", jumlah: 800, kaedahBayaran: "Wakaf & Endowmen", status: "Berjaya" },
+  { id: "D001", tarikhMasa: "2025-03-05 09:23", noRujukan: "EP-2025-0001", namaPenyumbang: "Penyumbang Demo 01", noKadPengenalan: "000001-00-0001", emel: "demo01@example.com", noTelefon: "01X-0000001", jenisPenyumbang: "Staf UTHM", produk: "Dana Wang Ihsan Am", ptj: "PHEP", jumlah: 500, kaedahBayaran: "Potongan Gaji", status: "Berjaya" },
+  { id: "D002", tarikhMasa: "2025-03-05 10:45", noRujukan: "EP-2025-0002", namaPenyumbang: "Penyumbang Demo 02", noKadPengenalan: "000002-00-0002", emel: "demo02@example.com", noTelefon: "01X-0000002", jenisPenyumbang: "Alumni", produk: "Wakaf Am UTHM", ptj: "WAKAF", jumlah: 1000, kaedahBayaran: "Wakaf & Endowmen", status: "Berjaya" },
+  { id: "D003", tarikhMasa: "2025-03-05 11:12", noRujukan: "EP-2025-0003", namaPenyumbang: "Penyumbang Demo 03", noKadPengenalan: "000003-00-0003", emel: "demo03@example.com", noTelefon: "01X-0000003", jenisPenyumbang: "Industri", produk: "Endowmen Kursi Profesor", ptj: "WAKAF", jumlah: 5000, kaedahBayaran: "FPX", status: "Berjaya" },
+  { id: "D004", tarikhMasa: "2025-03-04 14:30", noRujukan: "EP-2025-0004", namaPenyumbang: "Penyumbang Demo 04", noKadPengenalan: "000004-00-0004", emel: "demo04@example.com", noTelefon: "01X-0000004", jenisPenyumbang: "Orang Awam", produk: "Zakat Fitrah UTHM", ptj: "PUSAT_ISLAM", jumlah: 25, kaedahBayaran: "FPX", status: "Berjaya" },
+  { id: "D005", tarikhMasa: "2025-03-04 15:22", noRujukan: "EP-2025-0005", namaPenyumbang: "Penyumbang Demo 05", noKadPengenalan: "000005-00-0005", emel: "demo05@example.com", noTelefon: "01X-0000005", jenisPenyumbang: "Staf UTHM", produk: "Dana Bantuan Kecemasan Pelajar", ptj: "PHEP", jumlah: 200, kaedahBayaran: "Potongan Gaji", status: "Dalam Proses" },
+  { id: "D006", tarikhMasa: "2025-03-04 16:45", noRujukan: "EP-2025-0006", namaPenyumbang: "Penyumbang Demo 06", noKadPengenalan: "000006-00-0006", emel: "demo06@example.com", noTelefon: "01X-0000006", jenisPenyumbang: "Orang Awam", produk: "Tabung Yayasan UTHM", ptj: "YAYASAN", jumlah: 500, kaedahBayaran: "Wakaf & Endowmen", status: "Berjaya" },
+  { id: "D007", tarikhMasa: "2025-03-03 09:15", noRujukan: "EP-2025-0007", namaPenyumbang: "Penyumbang Demo 07", noKadPengenalan: "000007-00-0007", emel: "demo07@example.com", noTelefon: "01X-0000007", jenisPenyumbang: "Staf UTHM", produk: "Zakat Pendapatan", ptj: "PUSAT_ISLAM", jumlah: 340, kaedahBayaran: "Potongan Gaji", status: "Berjaya" },
+  { id: "D008", tarikhMasa: "2025-03-03 10:30", noRujukan: "EP-2025-0008", namaPenyumbang: "Penyumbang Demo 08", noKadPengenalan: "000008-00-0008", emel: "demo08@example.com", noTelefon: "01X-0000008", jenisPenyumbang: "Industri", produk: "Wakaf Penyelidikan & Inovasi", ptj: "WAKAF", jumlah: 2000, kaedahBayaran: "Pindahan Bank", status: "Berjaya" },
+  { id: "D009", tarikhMasa: "2025-03-03 14:20", noRujukan: "EP-2025-0009", namaPenyumbang: "Penyumbang Demo 09", noKadPengenalan: "000009-00-0009", emel: "demo09@example.com", noTelefon: "01X-0000009", jenisPenyumbang: "Orang Awam", produk: "Dana Wang Ihsan Am", ptj: "PHEP", jumlah: 100, kaedahBayaran: "FPX", status: "Gagal" },
+  { id: "D010", tarikhMasa: "2025-03-02 11:45", noRujukan: "EP-2025-0010", namaPenyumbang: "Penyumbang Demo 10", noKadPengenalan: "000010-00-0010", emel: "demo10@example.com", noTelefon: "01X-0000010", jenisPenyumbang: "Staf UTHM", produk: "Dana Pelajar Asnaf", ptj: "PUSAT_ISLAM", jumlah: 150, kaedahBayaran: "Potongan Gaji", status: "Berjaya" },
+  { id: "D011", tarikhMasa: "2025-03-02 13:10", noRujukan: "EP-2025-0011", namaPenyumbang: "Penyumbang Demo 11", noKadPengenalan: "000011-00-0011", emel: "demo11@example.com", noTelefon: "01X-0000011", jenisPenyumbang: "Alumni", produk: "Biasiswa Yayasan UTHM", ptj: "YAYASAN", jumlah: 300, kaedahBayaran: "FPX", status: "Berjaya" },
+  { id: "D012", tarikhMasa: "2025-03-01 09:00", noRujukan: "EP-2025-0012", namaPenyumbang: "Penyumbang Demo 12", noKadPengenalan: "000012-00-0012", emel: "demo12@example.com", noTelefon: "01X-0000012", jenisPenyumbang: "Industri", produk: "Tabung Perubatan Pelajar", ptj: "KESIHATAN", jumlah: 800, kaedahBayaran: "Wakaf & Endowmen", status: "Berjaya" },
 ];
 
 // ─── SALARY DEDUCTIONS ───────────────────────────────────────────────────────
@@ -231,25 +231,26 @@ export interface AdminProfile {
 }
 
 export const ADMIN_PROFILES: Record<string, AdminProfile> = {
-  phep: { id: "A001", nama: "Dr. Rashidah binti Mohd Aris", ptj: "PHEP", jawatan: "Pengarah PHEP", emel: "rashidah@uthm.edu.my", avatar: "RA", peranan: "full" },
-  "pusat-islam": { id: "A002", nama: "Ustaz Hafizuddin bin Rahmat", ptj: "PUSAT_ISLAM", jawatan: "Pengarah Pusat Islam", emel: "hafizuddin@uthm.edu.my", avatar: "HR", peranan: "full" },
-  wakaf: { id: "A003", nama: "Pn. Norzalinda binti Hassan", ptj: "WAKAF", jawatan: "Pengurus Wakaf", emel: "norzalinda@uthm.edu.my", avatar: "NH", peranan: "full" },
-  yayasan: { id: "A004", nama: "En. Kamarudin bin Abdul Ghani", ptj: "YAYASAN", jawatan: "Ketua Eksekutif Yayasan", emel: "kamarudin@uthm.edu.my", avatar: "KG", peranan: "full" },
-  kesihatan: { id: "A005", nama: "Dr. Fauziah binti Sulaiman", ptj: "KESIHATAN", jawatan: "Pengarah Perubatan", emel: "fauziah@uthm.edu.my", avatar: "FS", peranan: "full" },
-  fakulti: { id: "A006", nama: "Prof. Dr. Ahmad Zairi bin Mat Zuki", ptj: "FAKULTI", jawatan: "Dekan Fakulti TDHEPA", emel: "ahmadzairi@uthm.edu.my", avatar: "AZ", peranan: "full" },
-  bendahari: { id: "A007", nama: "En. Roslan bin Hamzah", ptj: "BENDAHARI", jawatan: "Bendahari Universiti", emel: "roslan@uthm.edu.my", avatar: "RH", peranan: "bendahari" },
-  tnc: { id: "A008", nama: "Prof. Madya Dr. Sazilah binti Ahmad Saman", ptj: "TNC_HEPA", jawatan: "Timbalan Naib Canselor HEPA", emel: "sazilah@uthm.edu.my", avatar: "SA", peranan: "readonly" },
+  phep: { id: "A001", nama: "Pentadbir PHEP (Demo)", ptj: "PHEP", jawatan: "Pengarah PHEP", emel: "phep.admin@demo.eprihatin.my", avatar: "PA", peranan: "full" },
+  "pusat-islam": { id: "A002", nama: "Pentadbir Pusat Islam (Demo)", ptj: "PUSAT_ISLAM", jawatan: "Pengarah Pusat Islam", emel: "islam.admin@demo.eprihatin.my", avatar: "PI", peranan: "full" },
+  wakaf: { id: "A003", nama: "Pentadbir Wakaf (Demo)", ptj: "WAKAF", jawatan: "Pengurus Wakaf", emel: "wakaf.admin@demo.eprihatin.my", avatar: "WA", peranan: "full" },
+  yayasan: { id: "A004", nama: "Pentadbir Yayasan (Demo)", ptj: "YAYASAN", jawatan: "Ketua Eksekutif Yayasan", emel: "yayasan.admin@demo.eprihatin.my", avatar: "YA", peranan: "full" },
+  kesihatan: { id: "A005", nama: "Pentadbir Kesihatan (Demo)", ptj: "KESIHATAN", jawatan: "Pengarah Perubatan", emel: "kesihatan.admin@demo.eprihatin.my", avatar: "KA", peranan: "full" },
+  fakulti: { id: "A006", nama: "Pentadbir Fakulti (Demo)", ptj: "FAKULTI", jawatan: "Dekan Fakulti TDHEPA", emel: "fakulti.admin@demo.eprihatin.my", avatar: "FA", peranan: "full" },
+  bendahari: { id: "A007", nama: "Pentadbir Bendahari (Demo)", ptj: "BENDAHARI", jawatan: "Bendahari Universiti", emel: "bendahari.admin@demo.eprihatin.my", avatar: "BA", peranan: "bendahari" },
+  tnc: { id: "A008", nama: "Pentadbir TNC HEPA (Demo)", ptj: "TNC_HEPA", jawatan: "Timbalan Naib Canselor HEPA", emel: "tnc.admin@demo.eprihatin.my", avatar: "TA", peranan: "readonly" },
 };
 
 // ─── DEMO CREDENTIALS ────────────────────────────────────────────────────────
 
+// Demo accounts — password is a single shared demo key defined in Login.tsx
 export const DEMO_CREDENTIALS = [
-  { label: "PHEP (Super Admin)", email: "rashidah@uthm.edu.my", password: "admin123", role: "phep" },
-  { label: "Pusat Islam", email: "hafizuddin@uthm.edu.my", password: "admin123", role: "pusat-islam" },
-  { label: "Wakaf & Endowmen", email: "norzalinda@uthm.edu.my", password: "admin123", role: "wakaf" },
-  { label: "Yayasan UTHM", email: "kamarudin@uthm.edu.my", password: "admin123", role: "yayasan" },
-  { label: "Pusat Kesihatan", email: "fauziah@uthm.edu.my", password: "admin123", role: "kesihatan" },
-  { label: "Fakulti TDHEPA", email: "ahmadzairi@uthm.edu.my", password: "admin123", role: "fakulti" },
-  { label: "Pejabat Bendahari", email: "roslan@uthm.edu.my", password: "admin123", role: "bendahari" },
-  { label: "TNC HEPA (Baca Sahaja)", email: "sazilah@uthm.edu.my", password: "admin123", role: "tnc" },
+  { label: "PHEP (Super Admin)", email: "phep.admin@demo.eprihatin.my", role: "phep" },
+  { label: "Pusat Islam", email: "islam.admin@demo.eprihatin.my", role: "pusat-islam" },
+  { label: "Wakaf & Endowmen", email: "wakaf.admin@demo.eprihatin.my", role: "wakaf" },
+  { label: "Yayasan UTHM", email: "yayasan.admin@demo.eprihatin.my", role: "yayasan" },
+  { label: "Pusat Kesihatan", email: "kesihatan.admin@demo.eprihatin.my", role: "kesihatan" },
+  { label: "Fakulti TDHEPA", email: "fakulti.admin@demo.eprihatin.my", role: "fakulti" },
+  { label: "Pejabat Bendahari", email: "bendahari.admin@demo.eprihatin.my", role: "bendahari" },
+  { label: "TNC HEPA (Baca Sahaja)", email: "tnc.admin@demo.eprihatin.my", role: "tnc" },
 ];

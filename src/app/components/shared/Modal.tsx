@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import { ReactNode } from "react";
 import { X } from "lucide-react";
 
 interface ModalProps {
@@ -22,7 +22,12 @@ export function Modal({ isOpen, onClose, title, children, footer, size = "md" }:
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 glass-panel"
+      className="fixed inset-0 z-50 flex items-center justify-center p-4"
+      style={{ background: "rgba(15,23,42,0.5)" }}
+      onClick={onClose}
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modal-title"
     >
       <div
         className={`w-full ${SIZE_MAP[size]} max-h-[90vh] flex flex-col glass-panel`}
@@ -37,9 +42,10 @@ export function Modal({ isOpen, onClose, title, children, footer, size = "md" }:
             borderRadius: "16px 16px 0 0",
           }}
         >
-          <h2 className="text-[#0F172A] font-semibold text-base" style={{ fontWeight: 700 }}>{title}</h2>
+          <h2 id="modal-title" className="text-[#0F172A] font-semibold text-base" style={{ fontWeight: 700 }}>{title}</h2>
           <button
             onClick={onClose}
+            aria-label="Tutup"
             className="text-[#64748B] hover:text-[#0F172A] transition-colors"
           >
             <X className="w-5 h-5" />

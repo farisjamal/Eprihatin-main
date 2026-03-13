@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useNavigate, useLocation } from "react-router";
-import { Shield, CreditCard, Building, Loader2, Lock } from "lucide-react";
+import { Shield, Loader2, Lock } from "lucide-react";
 import { Breadcrumb } from "../../components/shared/Breadcrumb";
 
 const BANKS = [
@@ -135,12 +135,7 @@ export default function Pembayaran() {
               <button
                 onClick={handlePayment}
                 disabled={!selectedBank}
-                className="w-full h-11 font-bold text-sm rounded-[10px] transition-all flex items-center justify-center gap-2"
-                style={
-                  selectedBank
-                    ? { background: "rgba(10,47,166,0.2)", border: "1px solid rgba(10,47,166,0.45)", color: "#0A2FA6", fontWeight: 700, boxShadow: "0 2px 12px rgba(10,47,166,0.12)" }
-                    : { background: "rgba(203,213,225,0.2)", border: "1px solid rgba(203,213,225,0.3)", color: "#CBD5E1", cursor: "not-allowed" }
-                }
+                className={`w-full ${selectedBank ? 'btn-primary' : 'btn-disabled'} flex items-center justify-center gap-2`}
               >
                 <Lock className="w-4 h-4" />
                 Sahkan Pembayaran — {formatRM(jumlah)}
@@ -148,8 +143,7 @@ export default function Pembayaran() {
 
               <button
                 onClick={() => navigate(-1)}
-                className="w-full h-9 mt-3 text-sm rounded-[10px] transition-all"
-                style={{ border: "1px solid #E2E8F0", color: "#64748B", background: "transparent" }}
+                className="w-full btn-secondary mt-3"
               >
                 ← Kembali
               </button>

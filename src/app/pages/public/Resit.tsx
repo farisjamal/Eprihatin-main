@@ -1,4 +1,4 @@
-import React from "react";
+
 import { useNavigate, useLocation } from "react-router";
 import { CheckCircle, Download, FileText, Home, Printer } from "lucide-react";
 
@@ -126,16 +126,14 @@ export default function Resit() {
       <div className="flex flex-wrap gap-3 justify-center mb-6">
         <button
           onClick={() => window.print()}
-          className="inline-flex items-center gap-2 px-5 h-11 text-sm rounded-[10px] transition-all"
-          style={{ background: "rgba(10,47,166,0.2)", border: "1px solid rgba(10,47,166,0.45)", color: "#0A2FA6", fontWeight: 700, boxShadow: "0 2px 12px rgba(10,47,166,0.12)" }}
+          className="inline-flex items-center gap-2 px-5 h-11 text-sm btn-primary"
         >
           <Download className="w-4 h-4" />
           Muat Turun Resit (PDF)
         </button>
         <button
           onClick={() => window.print()}
-          className="inline-flex items-center gap-2 px-5 h-11 text-sm rounded-[10px] transition-all"
-          style={{ background: "rgba(77,159,255,0.10)", border: "1px solid rgba(77,159,255,0.35)", color: "#0A2FA6", fontWeight: 600 }}
+          className="inline-flex items-center gap-2 px-5 h-11 text-sm btn-secondary"
         >
           <Printer className="w-4 h-4" />
           Muat Turun Surat Pengecualian Cukai

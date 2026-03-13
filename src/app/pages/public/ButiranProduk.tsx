@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useNavigate, useParams } from "react-router";
-import { ArrowLeft, Users, TrendingUp, CreditCard, Info } from "lucide-react";
+import { Users, TrendingUp, Info } from "lucide-react";
 import { WELFARE_PRODUCTS } from "../../data/mockData";
 import { Breadcrumb } from "../../components/shared/Breadcrumb";
 
@@ -42,7 +42,12 @@ export default function ButiranProduk() {
     const e: Record<string, string> = {};
     if (!form.jumlah || Number(form.jumlah) <= 0) e.jumlah = "Sila masukkan jumlah yang sah.";
     if (!form.nama.trim()) e.nama = "Nama penyumbang diperlukan.";
-    if (!form.nokp.trim()) e.nokp = "No. Kad Pengenalan diperlukan.";
+    const IC_REGEX = /^\d{6}-\d{2}-\d{4}$|^\d{12}$/;
+    if (!form.nokp.trim()) {
+      e.nokp = "No. Kad Pengenalan diperlukan.";
+    } else if (!IC_REGEX.test(form.nokp.trim())) {
+      e.nokp = "Format tidak sah. Contoh: 880512-01-5678";
+    }
     if (!form.emel.trim() || !form.emel.includes("@")) e.emel = "Alamat e-mel tidak sah.";
     if (!form.telefon.trim()) e.telefon = "No. telefon diperlukan.";
     if (!form.jenisPenyumbang) e.jenisPenyumbang = "Sila pilih jenis penyumbang.";
@@ -74,10 +79,9 @@ export default function ButiranProduk() {
   };
 
   const inputClass = (field: string) =>
-    `w-full h-10 px-3 border rounded-lg text-sm focus:outline-none focus:ring-1 ${
-      errors[field]
-        ? "border-[#DC2626] focus:ring-[#DC2626]/20"
-        : "border-[#E2E8F0] focus:border-[#0A2FA6] focus:ring-[#0A2FA6]/10"
+    `w-full h-10 px-3 border rounded-lg text-sm focus:outline-none focus:ring-1 ${errors[field]
+      ? "border-[#DC2626] focus:ring-[#DC2626]/20"
+      : "border-[#E2E8F0] focus:border-[#0A2FA6] focus:ring-[#0A2FA6]/10"
     }`;
 
   return (
@@ -112,10 +116,10 @@ export default function ButiranProduk() {
           </div>
 
           <div className="p-5 glass-panel">
-            <h2 className="font-semibold text-[#0F172A] mb-3 pb-2 border-b-2 border-[#0A2FA6] inline-block" style={{ fontWeight: 700 }}>
+            <h2 className="font-semibold text-[var(--foreground)] mb-3 pb-2 border-b-2 border-[var(--primary)] inline-block" style={{ fontWeight: 700 }}>
               Tentang Tabung Ini
             </h2>
-            <p className="text-sm text-[#0F172A] leading-relaxed">{product.penerangan}</p>
+            <p className="text-sm text-[var(--foreground)] leading-relaxed">{product.penerangan}</p>
           </div>
 
           {/* Stats */}
@@ -197,46 +201,46 @@ export default function ButiranProduk() {
 
               {/* Name */}
               <div>
-                <label className="block mb-1" style={{ fontSize: "13px", fontWeight: 600, color: "#0F172A" }}>
+                <label htmlFor="nama" className="block mb-1" style={{ fontSize: "13px", fontWeight: 600, color: "#0F172A" }}>
                   Nama Penyumbang <span className="text-[#DC2626]">*</span>
                 </label>
-                <input type="text" value={form.nama} onChange={(e) => { setForm({ ...form, nama: e.target.value }); setErrors({ ...errors, nama: "" }); }} className={inputClass("nama")} placeholder="Nama penuh mengikut Kad Pengenalan" />
+                <input id="nama" type="text" value={form.nama} onChange={(e) => { setForm({ ...form, nama: e.target.value }); setErrors({ ...errors, nama: "" }); }} className={inputClass("nama")} placeholder="Nama penuh mengikut Kad Pengenalan" />
                 {errors.nama && <p className="text-xs text-[#DC2626] mt-1">{errors.nama}</p>}
               </div>
 
               {/* IC */}
               <div>
-                <label className="block mb-1" style={{ fontSize: "13px", fontWeight: 600, color: "#0F172A" }}>
+                <label htmlFor="nokp" className="block mb-1" style={{ fontSize: "13px", fontWeight: 600, color: "#0F172A" }}>
                   No. Kad Pengenalan / Passport <span className="text-[#DC2626]">*</span>
                 </label>
-                <input type="text" value={form.nokp} onChange={(e) => { setForm({ ...form, nokp: e.target.value }); setErrors({ ...errors, nokp: "" }); }} className={inputClass("nokp")} placeholder="880512-01-5678" />
+                <input id="nokp" type="text" value={form.nokp} onChange={(e) => { setForm({ ...form, nokp: e.target.value }); setErrors({ ...errors, nokp: "" }); }} className={inputClass("nokp")} placeholder="880512-01-5678" />
                 {errors.nokp && <p className="text-xs text-[#DC2626] mt-1">{errors.nokp}</p>}
               </div>
 
               {/* Email */}
               <div>
-                <label className="block mb-1" style={{ fontSize: "13px", fontWeight: 600, color: "#0F172A" }}>
+                <label htmlFor="emel" className="block mb-1" style={{ fontSize: "13px", fontWeight: 600, color: "#0F172A" }}>
                   E-mel <span className="text-[#DC2626]">*</span>
                 </label>
-                <input type="email" value={form.emel} onChange={(e) => { setForm({ ...form, emel: e.target.value }); setErrors({ ...errors, emel: "" }); }} className={inputClass("emel")} placeholder="contoh@email.com" />
+                <input id="emel" type="email" value={form.emel} onChange={(e) => { setForm({ ...form, emel: e.target.value }); setErrors({ ...errors, emel: "" }); }} className={inputClass("emel")} placeholder="contoh@email.com" />
                 {errors.emel && <p className="text-xs text-[#DC2626] mt-1">{errors.emel}</p>}
               </div>
 
               {/* Phone */}
               <div>
-                <label className="block mb-1" style={{ fontSize: "13px", fontWeight: 600, color: "#0F172A" }}>
+                <label htmlFor="telefon" className="block mb-1" style={{ fontSize: "13px", fontWeight: 600, color: "#0F172A" }}>
                   No. Telefon <span className="text-[#DC2626]">*</span>
                 </label>
-                <input type="tel" value={form.telefon} onChange={(e) => { setForm({ ...form, telefon: e.target.value }); setErrors({ ...errors, telefon: "" }); }} className={inputClass("telefon")} placeholder="0123456789" />
+                <input id="telefon" type="tel" value={form.telefon} onChange={(e) => { setForm({ ...form, telefon: e.target.value }); setErrors({ ...errors, telefon: "" }); }} className={inputClass("telefon")} placeholder="0123456789" />
                 {errors.telefon && <p className="text-xs text-[#DC2626] mt-1">{errors.telefon}</p>}
               </div>
 
               {/* Donor Type */}
               <div>
-                <label className="block mb-1" style={{ fontSize: "13px", fontWeight: 600, color: "#0F172A" }}>
+                <label htmlFor="jenisPenyumbang" className="block mb-1" style={{ fontSize: "13px", fontWeight: 600, color: "#0F172A" }}>
                   Jenis Penyumbang <span className="text-[#DC2626]">*</span>
                 </label>
-                <select value={form.jenisPenyumbang} onChange={(e) => { setForm({ ...form, jenisPenyumbang: e.target.value }); setErrors({ ...errors, jenisPenyumbang: "" }); }} className={inputClass("jenisPenyumbang")}>
+                <select id="jenisPenyumbang" value={form.jenisPenyumbang} onChange={(e) => { setForm({ ...form, jenisPenyumbang: e.target.value }); setErrors({ ...errors, jenisPenyumbang: "" }); }} className={inputClass("jenisPenyumbang")}>
                   <option value="">-- Pilih Jenis Penyumbang --</option>
                   <option value="Staf UTHM">Staf UTHM</option>
                   <option value="Alumni">Alumni UTHM</option>
@@ -279,14 +283,7 @@ export default function ButiranProduk() {
 
               <button
                 type="submit"
-                className="w-full h-11 font-bold text-sm rounded-[10px] transition-all mt-2"
-                style={{
-                  background: "rgba(10,47,166,0.2)",
-                  border: "1px solid rgba(10,47,166,0.45)",
-                  color: "#0A2FA6",
-                  fontWeight: 700,
-                  boxShadow: "0 2px 12px rgba(10,47,166,0.15)",
-                }}
+                className="w-full btn-solid-gold mt-2"
               >
                 DERMA SEKARANG
               </button>

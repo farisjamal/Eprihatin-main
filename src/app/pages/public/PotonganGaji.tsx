@@ -21,7 +21,12 @@ export default function PotonganGaji() {
 
   const validate = () => {
     const e: Record<string, string> = {};
-    if (!form.noPekerja.trim()) e.noPekerja = "No. Pekerja diperlukan.";
+    const NO_PEKERJA_REGEX = /^UTHM-\d{4}$/i;
+    if (!form.noPekerja.trim()) {
+      e.noPekerja = "No. Pekerja diperlukan.";
+    } else if (!NO_PEKERJA_REGEX.test(form.noPekerja.trim())) {
+      e.noPekerja = "Format tidak sah. Contoh: UTHM-1234";
+    }
     if (!form.jabatan.trim()) e.jabatan = "Jabatan diperlukan.";
     if (!form.amaunSebulan || Number(form.amaunSebulan) <= 0) e.amaunSebulan = "Amaun sah diperlukan.";
     if (!form.tarikhMula) e.tarikhMula = "Tarikh mula diperlukan.";
@@ -37,10 +42,9 @@ export default function PotonganGaji() {
   };
 
   const inputClass = (field: string) =>
-    `w-full h-10 px-3 border rounded-lg text-sm focus:outline-none focus:ring-1 ${
-      errors[field]
-        ? "border-[#DC2626] focus:ring-[#DC2626]/20"
-        : "border-[#E2E8F0] focus:border-[#0A2FA6] focus:ring-[#0A2FA6]/10"
+    `w-full h-10 px-3 border rounded-lg text-sm focus:outline-none focus:ring-1 ${errors[field]
+      ? "border-[#DC2626] focus:ring-[#DC2626]/20"
+      : "border-[#E2E8F0] focus:border-[#0A2FA6] focus:ring-[#0A2FA6]/10"
     }`;
 
   if (submitted) {
@@ -96,10 +100,11 @@ export default function PotonganGaji() {
         <form onSubmit={handleSubmit} className="space-y-4">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label className="block mb-1" style={{ fontSize: "13px", fontWeight: 600, color: "#0F172A" }}>
+              <label htmlFor="noPekerja" className="block mb-1" style={{ fontSize: "13px", fontWeight: 600, color: "#0F172A" }}>
                 No. Pekerja <span className="text-[#DC2626]">*</span>
               </label>
               <input
+                id="noPekerja"
                 type="text"
                 value={form.noPekerja}
                 onChange={(e) => { setForm({ ...form, noPekerja: e.target.value }); setErrors({ ...errors, noPekerja: "" }); }}
@@ -110,10 +115,11 @@ export default function PotonganGaji() {
             </div>
 
             <div>
-              <label className="block mb-1" style={{ fontSize: "13px", fontWeight: 600, color: "#0F172A" }}>
+              <label htmlFor="jabatan" className="block mb-1" style={{ fontSize: "13px", fontWeight: 600, color: "#0F172A" }}>
                 Jabatan <span className="text-[#DC2626]">*</span>
               </label>
               <input
+                id="jabatan"
                 type="text"
                 value={form.jabatan}
                 onChange={(e) => { setForm({ ...form, jabatan: e.target.value }); setErrors({ ...errors, jabatan: "" }); }}
@@ -125,10 +131,11 @@ export default function PotonganGaji() {
           </div>
 
           <div>
-            <label className="block mb-1" style={{ fontSize: "13px", fontWeight: 600, color: "#0F172A" }}>
+            <label htmlFor="tabung" className="block mb-1" style={{ fontSize: "13px", fontWeight: 600, color: "#0F172A" }}>
               Tabung Pilihan <span className="text-[#DC2626]">*</span>
             </label>
             <input
+              id="tabung"
               type="text"
               value={form.tabung}
               readOnly
@@ -139,12 +146,13 @@ export default function PotonganGaji() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label className="block mb-1" style={{ fontSize: "13px", fontWeight: 600, color: "#0F172A" }}>
+              <label htmlFor="amaunSebulan" className="block mb-1" style={{ fontSize: "13px", fontWeight: 600, color: "#0F172A" }}>
                 Amaun Potongan Sebulan (RM) <span className="text-[#DC2626]">*</span>
               </label>
               <div className="relative">
                 <span className="absolute left-3 top-1/2 -translate-y-1/2 text-sm text-[#64748B]">RM</span>
                 <input
+                  id="amaunSebulan"
                   type="number"
                   min="1"
                   value={form.amaunSebulan}
@@ -157,10 +165,11 @@ export default function PotonganGaji() {
             </div>
 
             <div>
-              <label className="block mb-1" style={{ fontSize: "13px", fontWeight: 600, color: "#0F172A" }}>
+              <label htmlFor="tarikhMula" className="block mb-1" style={{ fontSize: "13px", fontWeight: 600, color: "#0F172A" }}>
                 Tarikh Mula Potongan <span className="text-[#DC2626]">*</span>
               </label>
               <input
+                id="tarikhMula"
                 type="date"
                 value={form.tarikhMula}
                 onChange={(e) => { setForm({ ...form, tarikhMula: e.target.value }); setErrors({ ...errors, tarikhMula: "" }); }}
@@ -172,10 +181,11 @@ export default function PotonganGaji() {
           </div>
 
           <div>
-            <label className="block mb-1" style={{ fontSize: "13px", fontWeight: 600, color: "#0F172A" }}>
+            <label htmlFor="tempoh" className="block mb-1" style={{ fontSize: "13px", fontWeight: 600, color: "#0F172A" }}>
               Tempoh Potongan <span className="text-[#DC2626]">*</span>
             </label>
             <select
+              id="tempoh"
               value={form.tempoh}
               onChange={(e) => { setForm({ ...form, tempoh: e.target.value }); setErrors({ ...errors, tempoh: "" }); }}
               className={inputClass("tempoh")}
@@ -193,15 +203,13 @@ export default function PotonganGaji() {
             <button
               type="button"
               onClick={() => navigate(-1)}
-              className="flex-1 h-11 text-sm font-medium rounded-[10px] transition-all"
-              style={{ border: "1px solid #E2E8F0", color: "#64748B", background: "transparent" }}
+              className="flex-1 btn-secondary"
             >
               Batal
             </button>
             <button
               type="submit"
-              className="flex-1 h-11 font-bold text-sm rounded-[10px] transition-all"
-              style={{ background: "rgba(10,47,166,0.2)", border: "1px solid rgba(10,47,166,0.45)", color: "#0A2FA6", fontWeight: 700, boxShadow: "0 2px 12px rgba(10,47,166,0.12)" }}
+              className="flex-1 btn-primary"
             >
               Hantar Permohonan Potongan Gaji
             </button>

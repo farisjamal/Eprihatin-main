@@ -80,10 +80,10 @@ export default function Dashboard() {
 
       <Breadcrumb items={[{ label: "Dashboard" }]} />
       <div>
-        <h1 className="text-2xl font-bold text-[#0F172A]">
+        <h1 className="text-2xl font-bold text-[var(--foreground)]">
           {isBendahari ? "Dashboard — Pejabat Bendahari" : isReadonly ? "Papan Pemuka (Tontonan Sahaja)" : `Dashboard — ${ptjConfig.label}`}
         </h1>
-        <p className="text-[#64748B] text-sm mt-1">
+        <p className="text-[var(--muted-foreground)] text-sm mt-1">
           {new Date().toLocaleDateString("ms-MY", { weekday: "long", day: "numeric", month: "long", year: "numeric" })}
         </p>
       </div>
@@ -166,7 +166,7 @@ export default function Dashboard() {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Main Chart */}
         <div className="lg:col-span-2 p-5 glass-panel">
-          <h2 className="font-semibold text-[#0F172A] mb-4 pb-2 border-b-2 border-[#0A2FA6] inline-block" style={{ fontWeight: 700 }}>
+          <h2 className="font-semibold text-[var(--foreground)] mb-4 pb-2 border-b-2 border-[var(--primary)] inline-block" style={{ fontWeight: 700 }}>
             {isReadonly ? "Trend Sumbangan Keseluruhan UTHM" : isBendahari ? "Trend Permohonan Potongan Gaji" : `Trend Sumbangan Bulanan — ${ptjConfig.shortLabel}`}
           </h2>
           <div className="h-56">
@@ -204,7 +204,7 @@ export default function Dashboard() {
 
         {/* Pie / Side Chart */}
         <div className="p-5 glass-panel">
-          <h2 className="font-semibold text-[#0F172A] mb-4 pb-2 border-b-2 border-[#0A2FA6] inline-block text-sm" style={{ fontWeight: 700 }}>
+          <h2 className="font-semibold text-[var(--foreground)] mb-4 pb-2 border-b-2 border-[var(--primary)] inline-block text-sm" style={{ fontWeight: 700 }}>
             Peratusan Mengikut PTj
           </h2>
           <div className="h-40">
@@ -244,9 +244,9 @@ export default function Dashboard() {
       <div className="glass-panel" style={{ overflow: "hidden" }}>
         <div
           className="px-5 py-4 flex items-center justify-between"
-          style={{ borderBottom: "1px solid rgba(226,232,240,0.6)" }}
+          style={{ borderBottom: "1px solid var(--border)" }}
         >
-          <h2 className="font-semibold text-[#0F172A]" style={{ fontWeight: 700 }}>
+          <h2 className="font-semibold text-[var(--foreground)]" style={{ fontWeight: 700 }}>
             {isBendahari ? "Permohonan Potongan Gaji Terkini" : "Sumbangan Terkini"}
           </h2>
         </div>
@@ -277,10 +277,10 @@ export default function Dashboard() {
                     onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.background = "#F0F7FF")}
                     onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.background = i % 2 === 1 ? "#FAFAFA" : "white")}
                   >
-                    <td className="px-4 py-3 text-xs text-[#64748B] whitespace-nowrap">{d.tarikhPermohonan}</td>
-                    <td className="px-4 py-3 text-xs font-mono text-[#0A2FA6]">{d.noPerkerja}</td>
-                    <td className="px-4 py-3 text-xs font-medium text-[#0F172A]">{d.namaStaf}</td>
-                    <td className="px-4 py-3 text-xs text-[#64748B] max-w-[160px]"><p className="truncate">{d.tabung}</p></td>
+                    <td className="px-4 py-3 text-xs text-[var(--muted-foreground)] whitespace-nowrap">{d.tarikhPermohonan}</td>
+                    <td className="px-4 py-3 text-xs font-mono text-[var(--primary)]">{d.noPerkerja}</td>
+                    <td className="px-4 py-3 text-xs font-medium text-[var(--foreground)]">{d.namaStaf}</td>
+                    <td className="px-4 py-3 text-xs text-[var(--muted-foreground)] max-w-[160px]"><p className="truncate">{d.tabung}</p></td>
                     <td className="px-4 py-3 text-xs font-semibold">RM {d.amaunSebulan}</td>
                     <td className="px-4 py-3"><StatusBadge status={d.status} /></td>
                   </tr>
@@ -297,11 +297,11 @@ export default function Dashboard() {
                     onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.background = "#F0F7FF")}
                     onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.background = i % 2 === 1 ? "#FAFAFA" : "white")}
                   >
-                    <td className="px-4 py-3 text-xs text-[#64748B] whitespace-nowrap">{d.tarikhMasa}</td>
-                    <td className="px-4 py-3 text-xs font-medium text-[#0F172A]">{d.namaPenyumbang}</td>
-                    <td className="px-4 py-3 text-xs text-[#64748B] max-w-[180px]"><p className="truncate">{d.produk}</p></td>
-                    <td className="px-4 py-3 text-xs font-semibold text-[#0A2FA6] whitespace-nowrap">{formatRM(d.jumlah)}</td>
-                    <td className="px-4 py-3 text-xs text-[#64748B] whitespace-nowrap">{d.kaedahBayaran}</td>
+                    <td className="px-4 py-3 text-xs text-[var(--muted-foreground)] whitespace-nowrap">{d.tarikhMasa}</td>
+                    <td className="px-4 py-3 text-xs font-medium text-[var(--foreground)]">{d.namaPenyumbang}</td>
+                    <td className="px-4 py-3 text-xs text-[var(--muted-foreground)] max-w-[180px]"><p className="truncate">{d.produk}</p></td>
+                    <td className="px-4 py-3 text-xs font-semibold text-[var(--primary)] whitespace-nowrap">{formatRM(d.jumlah)}</td>
+                    <td className="px-4 py-3 text-xs text-[var(--muted-foreground)] whitespace-nowrap">{d.kaedahBayaran}</td>
                     <td className="px-4 py-3"><StatusBadge status={d.status} /></td>
                   </tr>
                 ))

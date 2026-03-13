@@ -112,39 +112,20 @@ export default function Cetakan() {
           <div className="space-y-2 pt-2">
             <button
               onClick={handlePreview}
-              className="w-full h-10 text-sm rounded-[10px] flex items-center justify-center gap-2 transition-all"
-              style={{
-                background: "rgba(10,47,166,0.2)",
-                border: "1px solid rgba(10,47,166,0.45)",
-                color: "#0A2FA6",
-                fontWeight: 700,
-                boxShadow: "0 2px 12px rgba(10,47,166,0.12), inset 0 1px 0 rgba(255,255,255,0.6)",
-              }}
+              className="w-full btn-primary"
             >
               <FileText className="w-4 h-4" />
               Pratonton Laporan
             </button>
             <button
               onClick={handlePrint}
-              className="w-full h-10 text-sm rounded-[10px] flex items-center justify-center gap-2 transition-all"
-              style={{
-                background: "rgba(249,168,37,0.15)",
-                border: "1px solid rgba(249,168,37,0.5)",
-                color: "#92400E",
-                fontWeight: 700,
-              }}
+              className="w-full btn-solid-gold"
             >
               <Printer className="w-4 h-4" />
               {isBendahari ? "Cetak Senarai Potongan Gaji" : "Cetak"}
             </button>
             <button
-              className="w-full h-10 text-sm rounded-[10px] flex items-center justify-center gap-2 transition-all"
-              style={{
-                background: "rgba(77,159,255,0.10)",
-                border: "1px solid rgba(77,159,255,0.35)",
-                color: "#0A2FA6",
-                fontWeight: 600,
-              }}
+              className="w-full btn-secondary"
             >
               <Download className="w-4 h-4" />
               Muat Turun PDF
@@ -209,27 +190,27 @@ export default function Cetakan() {
                     </thead>
                     <tbody>
                       {[1, 2, 3, 4, 5].map((n) => (
-                        <tr key={n} style={{ borderTop: "1px solid #E2E8F0" }}>
-                          <td className="px-3 py-2 text-[#64748B]">{n}</td>
+                        <tr key={n} style={{ borderTop: "1px solid var(--border)" }}>
+                          <td className="px-3 py-2 text-[var(--muted-foreground)]">{n}</td>
                           <td className="px-3 py-2">2025-03-0{n}</td>
                           <td className="px-3 py-2">Penyumbang {n}</td>
                           <td className="px-3 py-2">Dana Kebajikan</td>
-                          <td className="px-3 py-2 font-semibold text-[#0A2FA6]">RM {(n * 150).toLocaleString()}</td>
+                          <td className="px-3 py-2 font-semibold text-[var(--primary)]">RM {(n * 150).toLocaleString()}</td>
                         </tr>
                       ))}
                     </tbody>
                   </table>
 
-                  <div className="text-right pt-3" style={{ borderTop: "1px solid #E2E8F0" }}>
-                    <p className="text-xs text-[#64748B]">Dijana pada: {new Date().toLocaleString("ms-MY")}</p>
-                    <p className="text-xs text-[#64748B]">Sistem e-Prihatin UTHM</p>
+                  <div className="text-right pt-3" style={{ borderTop: "1px solid var(--border)" }}>
+                    <p className="text-xs text-[var(--muted-foreground)]">Dijana pada: {new Date().toLocaleString("ms-MY")}</p>
+                    <p className="text-xs text-[var(--muted-foreground)]">Sistem e-Prihatin UTHM</p>
                   </div>
                 </div>
               </div>
             ) : (
               <div className="flex flex-col items-center justify-center h-64 text-center p-8">
-                <FileText className="w-12 h-12 mb-3" style={{ color: "#E2E8F0" }} />
-                <p className="text-sm text-[#64748B]">Klik "Pratonton Laporan" untuk melihat laporan di sini.</p>
+                <FileText className="w-12 h-12 mb-3 text-[var(--border)]" />
+                <p className="text-sm text-[var(--muted-foreground)]">Klik "Pratonton Laporan" untuk melihat laporan di sini.</p>
               </div>
             )}
           </div>

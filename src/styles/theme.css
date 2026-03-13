@@ -354,4 +354,128 @@
     color: var(--muted-foreground);
     border: 1px solid rgba(100, 116, 139, 0.2);
   }
+
+  /* SPATIAL UI SCOPE - Isolates new design from Landing Page */
+  .spatial-ui {
+    /* Color Rebrand Variables */
+    --background: #FFFFFF;
+    --surface: #F8F9FB;
+    --primary: #0A2FA6;
+    --electric-blue: #4D9FFF;
+    --foreground: #0F172A;
+    --muted-foreground: #64748B;
+    --border: #E2E8F0;
+    --success: #16A34A;
+    --destructive: #DC2626;
+    --warning: #D97706;
+    --accent: #F9A825;
+
+    color: var(--foreground);
+  }
+
+  /* Liquid Glass Components (Only apply inside .spatial-ui) */
+  .spatial-ui .glass-panel {
+    background: rgba(255, 255, 255, 0.55) !important;
+    backdrop-filter: blur(20px) saturate(160%) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(160%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.7) !important;
+    border-radius: 16px !important;
+    box-shadow: 0 4px 24px rgba(100, 116, 139, 0.12),
+      inset 0 1px 0 rgba(255, 255, 255, 0.9) !important;
+    transition: all 0.3s ease;
+  }
+
+  .spatial-ui .glass-nav {
+    background: rgba(255, 255, 255, 0.75) !important;
+    backdrop-filter: blur(20px) saturate(160%) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(160%) !important;
+    border-bottom: 1px solid rgba(226, 232, 240, 0.6) !important;
+    box-shadow: none !important;
+  }
+
+  /* Liquid Glass Buttons */
+  .spatial-ui .btn-primary,
+  .spatial-ui .btn-secondary {
+    background: rgba(77, 159, 255, 0.15) !important;
+    backdrop-filter: blur(12px) saturate(160%) !important;
+    -webkit-backdrop-filter: blur(12px) saturate(160%) !important;
+    border: 1px solid rgba(77, 159, 255, 0.35) !important;
+    border-radius: 10px !important;
+    color: var(--primary) !important;
+    font-weight: 600 !important;
+    height: 40px !important;
+    box-shadow: 0 2px 12px rgba(30, 111, 255, 0.12),
+      inset 0 1px 0 rgba(255, 255, 255, 0.6) !important;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  }
+
+  .spatial-ui .btn-primary {
+    background: rgba(10, 47, 166, 0.2) !important;
+    border: 1px solid rgba(10, 47, 166, 0.45) !important;
+    color: var(--primary) !important;
+  }
+
+  .spatial-ui .btn-primary:hover:not(:disabled),
+  .spatial-ui .btn-secondary:hover:not(:disabled) {
+    background: rgba(77, 159, 255, 0.25) !important;
+    border-color: rgba(77, 159, 255, 0.5) !important;
+    box-shadow: 0 4px 20px rgba(30, 111, 255, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.7) !important;
+    transform: translateY(-1px) !important;
+  }
+
+  .spatial-ui .btn-danger {
+    background: rgba(220, 38, 38, 0.12) !important;
+    backdrop-filter: blur(12px) saturate(160%) !important;
+    -webkit-backdrop-filter: blur(12px) saturate(160%) !important;
+    border: 1px solid rgba(220, 38, 38, 0.3) !important;
+    border-radius: 10px !important;
+    color: var(--destructive) !important;
+    font-weight: 600 !important;
+    height: 40px !important;
+    box-shadow: 0 2px 12px rgba(220, 38, 38, 0.12),
+      inset 0 1px 0 rgba(255, 255, 255, 0.6) !important;
+  }
+
+  .spatial-ui .btn-danger:hover:not(:disabled) {
+    background: rgba(220, 38, 38, 0.2) !important;
+    border-color: rgba(220, 38, 38, 0.4) !important;
+    transform: translateY(-1px) !important;
+  }
+
+  .spatial-ui .btn-solid-gold {
+    background-color: var(--accent) !important;
+    color: #FFFFFF !important;
+    border: none !important;
+    box-shadow: 0 4px 14px rgba(249, 168, 37, 0.3) !important;
+  }
+
+  .spatial-ui .btn-solid-gold:hover:not(:disabled) {
+    background-color: #F57F17 !important;
+    box-shadow: 0 6px 20px rgba(249, 168, 37, 0.4) !important;
+  }
+
+  /* Form Panels inside Spatial UI */
+  .spatial-ui input,
+  .spatial-ui select,
+  .spatial-ui textarea {
+    background-color: #FFFFFF !important;
+    border: 1px solid var(--border) !important;
+    border-radius: 8px !important;
+    color: var(--foreground) !important;
+  }
+
+  .spatial-ui input:focus,
+  .spatial-ui select:focus,
+  .spatial-ui textarea:focus {
+    border-color: var(--primary) !important;
+    box-shadow: 0 0 0 3px rgba(10, 47, 166, 0.1) !important;
+    outline: none !important;
+  }
+
+  .spatial-ui input::placeholder,
+  .spatial-ui select::placeholder,
+  .spatial-ui textarea::placeholder {
+    color: #94A3B8 !important;
+  }
 }

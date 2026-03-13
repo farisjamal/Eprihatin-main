@@ -86,6 +86,13 @@ export function AdminLayout() {
     return <Navigate to="/login" replace />;
   }
 
+  // Role guard: the URL path segment must match the admin's own PTJ
+  const urlPtjSegment = location.pathname.split("/")[2]; // e.g. "phep" from "/admin/phep/..."
+  const adminPtjSegment = ptjToPath(currentAdmin.ptj);
+  if (urlPtjSegment && urlPtjSegment !== adminPtjSegment) {
+    return <Navigate to="/403" replace />;
+  }
+
   const ptjConfig = PTJ_CONFIGS[currentAdmin.ptj];
   const navItems = getNavItems(currentAdmin.ptj, currentAdmin.peranan);
   const unreadCount = NOTIFICATIONS.filter((n) => !n.dibaca).length;
@@ -97,8 +104,8 @@ export function AdminLayout() {
 
   return (
     <div
-      className="min-h-screen flex"
-      style={{ fontFamily: "'Inter', system-ui, sans-serif", background: "#F8F9FB" }}
+      className="min-h-screen flex spatial-ui"
+      style={{ fontFamily: "'Inter', system-ui, sans-serif", background: "var(--surface)" }}
     >
       {/* Sidebar */}
       <aside
@@ -145,7 +152,7 @@ export function AdminLayout() {
                 className="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm transition-all relative"
                 style={{
                   background: isActive ? "rgba(10,47,166,0.10)" : "transparent",
-                  color: isActive ? "#0A2FA6" : "#0F172A",
+                  color: isActive ? "var(--primary)" : "var(--foreground)",
                 }}
                 onMouseEnter={(e) => {
                   if (!isActive) (e.currentTarget as HTMLElement).style.background = "rgba(10,47,166,0.06)";
@@ -194,6 +201,7 @@ export function AdminLayout() {
         >
           <button
             onClick={() => setSidebarOpen(!sidebarOpen)}
+            aria-label={sidebarOpen ? "Tutup sidebar" : "Buka sidebar"}
             className="transition-colors"
             style={{ color: "#64748B" }}
             onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.color = "#0A2FA6")}
@@ -284,7 +292,7 @@ export function AdminLayout() {
         </header>
 
         {/* Page Content */}
-        <main className="flex-1 p-6" style={{ background: "#F8F9FB" }}>
+        <main className="flex-1 p-6">
           <Outlet />
         </main>
       </div>

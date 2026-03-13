@@ -4,6 +4,9 @@ import { Heart, Eye, EyeOff, Info } from "lucide-react";
 import { useAuth } from "../context/AuthContext";
 import { DEMO_CREDENTIALS } from "../data/mockData";
 
+// Single shared demo password — not stored in data layer
+const DEMO_PASSWORD = "demo";
+
 const ROLE_REDIRECT: Record<string, string> = {
   phep: "/admin/phep",
   "pusat-islam": "/admin/pusat-islam",
@@ -30,7 +33,7 @@ export default function Login() {
     setError("");
 
     const match = DEMO_CREDENTIALS.find(
-      (c) => c.email === email && c.password === password
+      (c) => c.email === email && password === DEMO_PASSWORD
     );
 
     if (!match) {
@@ -45,9 +48,7 @@ export default function Login() {
     }, 800);
   };
 
-  const handleDemoLogin = (role: string, demoEmail: string, demoPassword: string) => {
-    setEmail(demoEmail);
-    setPassword(demoPassword);
+  const handleDemoLogin = (role: string) => {
     setLoading(true);
     setTimeout(() => {
       login(role);
@@ -150,6 +151,7 @@ export default function Login() {
                 <button
                   type="button"
                   onClick={() => setShowPwd(!showPwd)}
+                  aria-label={showPwd ? "Sembunyikan kata laluan" : "Tunjukkan kata laluan"}
                   className="absolute right-3 top-1/2 -translate-y-1/2"
                   style={{ color: "#64748B" }}
                 >
@@ -194,14 +196,14 @@ export default function Login() {
                 style={{ border: "1px solid #E2E8F0", borderRadius: "12px" }}
               >
                 <div className="px-3 py-2" style={{ background: "#F8F9FB", borderBottom: "1px solid #E2E8F0" }}>
-                  <p className="text-xs font-semibold text-[#0F172A]">Akses Demo (Kata Laluan: admin123)</p>
+                  <p className="text-xs font-semibold text-[#0F172A]">Akses Demo (Kata Laluan: demo)</p>
                 </div>
                 <div>
                   {DEMO_CREDENTIALS.map((cred) => (
                     <button
                       key={cred.role}
                       type="button"
-                      onClick={() => handleDemoLogin(cred.role, cred.email, cred.password)}
+                      onClick={() => handleDemoLogin(cred.role)}
                       className="w-full flex items-center justify-between px-3 py-2.5 transition-colors text-left group"
                       style={{ borderBottom: "1px solid #E2E8F0" }}
                       onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.background = "rgba(77,159,255,0.06)")}

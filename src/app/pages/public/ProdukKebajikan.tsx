@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router";
-import { Search, Filter } from "lucide-react";
+import { Search } from "lucide-react";
 import { WELFARE_PRODUCTS, PtjType } from "../../data/mockData";
 import { Breadcrumb } from "../../components/shared/Breadcrumb";
-import { StatusBadge } from "../../components/shared/StatusBadge";
 
 type TabKey = "ALL" | PtjType;
 
@@ -24,7 +23,7 @@ export default function ProdukKebajikan() {
 
   const filtered = WELFARE_PRODUCTS.filter((p) => {
     const matchTab = activeTab === "ALL" || p.ptj === activeTab;
-    const matchSearch = search === "" || 
+    const matchSearch = search === "" ||
       p.nama.toLowerCase().includes(search.toLowerCase()) ||
       p.penerangan.toLowerCase().includes(search.toLowerCase());
     return matchTab && matchSearch && p.status === "Aktif";
@@ -36,7 +35,7 @@ export default function ProdukKebajikan() {
   return (
     <div className="max-w-7xl mx-auto px-6 py-8">
       <Breadcrumb items={[{ label: "Utama", onClick: () => navigate("/") }, { label: "Perkhidmatan" }]} />
-      
+
       <div className="mb-8">
         <h1 className="text-3xl font-bold text-[#0F172A] mb-2">Senarai Produk Kebajikan</h1>
         <p className="text-[#64748B]">Pilih tabung atau dana kebajikan yang ingin anda sumbangkan</p>
@@ -67,8 +66,8 @@ export default function ProdukKebajikan() {
             className="flex-shrink-0 px-4 h-9 rounded-lg text-sm font-medium transition-all"
             style={
               activeTab === tab.key
-                ? { background: "#0A2FA6", color: "white" }
-                : { background: "rgba(77,159,255,0.08)", color: "#0A2FA6", border: "1px solid rgba(77,159,255,0.2)" }
+                ? { background: "var(--primary)", color: "var(--primary-foreground)" }
+                : { background: "rgba(10,47,166,0.08)", color: "var(--primary)", border: "1px solid rgba(10,47,166,0.2)" }
             }
           >
             {tab.label}
@@ -154,13 +153,7 @@ export default function ProdukKebajikan() {
                   </button>
                   <button
                     onClick={() => navigate(`/produk/${product.id}`)}
-                    className="px-4 h-9 text-xs rounded-[10px] transition-all"
-                    style={{
-                      background: "rgba(10,47,166,0.15)",
-                      border: "1px solid rgba(10,47,166,0.35)",
-                      color: "#0A2FA6",
-                      fontWeight: 700,
-                    }}
+                    className="px-4 h-9 text-xs btn-primary rounded-[10px]"
                   >
                     DERMA
                   </button>
