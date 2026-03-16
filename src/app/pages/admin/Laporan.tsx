@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
   ResponsiveContainer, PieChart, Pie, Cell
@@ -21,7 +20,6 @@ export default function Laporan() {
   if (!currentAdmin) return null;
 
   const isReadonly = currentAdmin.peranan === "readonly";
-  const isBendahari = currentAdmin.peranan === "bendahari";
   const ptj = currentAdmin.ptj;
 
   const myProducts = isReadonly
@@ -30,8 +28,8 @@ export default function Laporan() {
 
   const myDonations = isReadonly ? DONATIONS : DONATIONS.filter((d) => d.ptj === ptj);
 
-  const totalSumbangan = myDonations.filter((d) => d.status === "Berjaya").reduce((sum, d) => sum + d.jumlah, 0);
-  const bilanganPenyumbang = myDonations.filter((d) => d.status === "Berjaya").length;
+  const totalSumbangan = myProducts.reduce((sum, p) => sum + p.jumlahTerkumpul, 0);
+  const bilanganPenyumbang = myProducts.reduce((sum, p) => sum + p.bilanganPenyumbang, 0);
   const purataSumbangan = bilanganPenyumbang > 0 ? totalSumbangan / bilanganPenyumbang : 0;
 
   const ptjKey = ({ PHEP: "PHEP", PUSAT_ISLAM: "PUSAT_ISLAM", WAKAF: "WAKAF", YAYASAN: "YAYASAN", KESIHATAN: "KESIHATAN", FAKULTI: "FAKULTI" } as Record<string, string>)[ptj] || "PHEP";
