@@ -1,7 +1,7 @@
 
   # e-Prihatin
 
-  This is a code bundle for e-Prihatin. The original project is available at https://www.figma.com/design/PdMEn4PjJ28nRtziEkV3OK/e-Prihatin.
+  This is a code bundle for e-Prihatin. The original project is available at 
 
   ## Running the code
 
