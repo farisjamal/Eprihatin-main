@@ -47,26 +47,26 @@ export default function LandingPage() {
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center overflow-hidden">
         <div
-          className="absolute inset-0 bg-center bg-cover"
+          className="absolute inset-0 bg-center bg-cover animate-hero-zoom"
           style={{ backgroundImage: `url(${CAMPUS_IMAGE})` }}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-[#0A2FA6]/95 via-[#0A2FA6]/85 to-[#4D9FFF]/50" />
         <div className="relative z-10 max-w-7xl mx-auto px-6 pt-20 pb-48 md:pt-24 md:pb-56">
           <div className="max-w-2xl">
-            <div className="inline-flex items-center gap-2 bg-[#F9A825]/20 border border-[#F9A825]/40 rounded-full px-4 py-1.5 mb-6">
+            <div className="inline-flex items-center gap-2 bg-[#F9A825]/20 border border-[#F9A825]/40 rounded-full px-4 py-1.5 mb-6 animate-hero-item hero-delay-1">
               <Heart className="w-4 h-4 text-[#F9A825]" fill="#F9A825" />
               <span className="text-[#F9A825] text-sm font-medium">Platform Kebajikan Rasmi UTHM</span>
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight mb-4">
+            <h1 className="text-4xl md:text-5xl font-bold text-white leading-tight mb-4 animate-hero-item hero-delay-2">
               e-Prihatin —{" "}
               <span className="text-[#F9A825]">Pilihan Untuk</span>{" "}
               Memberi Bantuan
             </h1>
-            <p className="text-white/80 text-lg leading-relaxed mb-8">
+            <p className="text-white/80 text-lg leading-relaxed mb-8 animate-hero-item hero-delay-3">
               Platform sumbangan kebajikan dalam talian yang berpusat untuk Universiti Tun Hussein Onn Malaysia.
               Menderma dengan mudah, selamat, dan telus.
             </p>
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap gap-4 animate-hero-item hero-delay-4">
               <button
                 onClick={() => navigate("/perkhidmatan")}
                 className="inline-flex items-center gap-2 px-6 h-12 font-bold rounded-[10px] hover:opacity-90 transition-all shadow-lg"
@@ -94,13 +94,14 @@ export default function LandingPage() {
             {STATS.map((stat, i) => (
               <div
                 key={i}
-                className="text-center p-6 rounded-2xl transition-all duration-300 hover:-translate-y-1"
+                className="text-center p-6 rounded-2xl transition-all duration-300 hover:-translate-y-1 animate-hero-item"
                 style={{
                   background: "rgba(255, 255, 255, 0.05)",
                   backdropFilter: "blur(12px)",
                   WebkitBackdropFilter: "blur(12px)",
                   border: "1px solid rgba(255, 255, 255, 0.1)",
-                  boxShadow: "0 8px 32px rgba(30, 58, 138, 0.2)"
+                  boxShadow: "0 8px 32px rgba(30, 58, 138, 0.2)",
+                  animationDelay: `${0.5 + i * 0.1}s`
                 }}
               >
                 <div className="flex justify-center mb-3 transform hover:scale-110 transition-transform">{stat.icon}</div>

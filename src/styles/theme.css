@@ -355,6 +355,29 @@
     border: 1px solid rgba(100, 116, 139, 0.2);
   }
 
+  /* Hero entrance animations (Landing Page) */
+  .animate-hero-item {
+    opacity: 0;
+    animation: hero-fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+
+  .hero-delay-1 { animation-delay: 0.1s; }
+  .hero-delay-2 { animation-delay: 0.2s; }
+  .hero-delay-3 { animation-delay: 0.3s; }
+  .hero-delay-4 { animation-delay: 0.4s; }
+
+  .animate-hero-zoom {
+    animation: hero-zoom 20s ease-out forwards;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .animate-hero-item,
+    .animate-hero-zoom {
+      animation: none;
+      opacity: 1;
+    }
+  }
+
   /* SPATIAL UI SCOPE - Isolates new design from Landing Page */
   .spatial-ui {
     /* Color Rebrand Variables */
@@ -477,5 +500,24 @@
   .spatial-ui select::placeholder,
   .spatial-ui textarea::placeholder {
     color: #94A3B8 !important;
+  }
+}
+@keyframes hero-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hero-zoom {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.08);
   }
 }
