@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
 import {
-  Heart, ArrowRight, ChevronRight, GraduationCap, Moon, Building2,
+  Heart, ArrowRight, GraduationCap, Moon, Building2,
   Star, Stethoscope, Wrench, TrendingUp, Users, CheckCircle, Quote
 } from "lucide-react";
-import { WELFARE_PRODUCTS, PTJ_CONFIGS, PtjType } from "../../data/mockData";
+import { WELFARE_PRODUCTS, PtjType } from "../../data/mockData";
 
-const CAMPUS_IMAGE = "https://images.unsplash.com/photo-1768720407727-f4c4b9a17e58?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx1bml2ZXJzaXR5JTIwY2FtcHVzJTIwZ3JlZW4lMjBidWlsZGluZyUyMGFjYWRlbWljfGVufDF8fHx8MTc3MjY4NjY1M3ww&ixlib=rb-4.1.0&q=80&w=1080";
+const CAMPUS_IMAGE = "/hero-uthm.jpg";
 
 const PTJ_TABS: { key: PtjType | "ALL"; label: string; icon: React.ReactNode; desc: string }[] = [
   { key: "ALL", label: "Semua PTj", icon: <Star className="w-5 h-5" />, desc: "Semua tabung kebajikan UTHM" },
@@ -31,6 +31,41 @@ const TESTIMONIALS = [
   { nama: "Mohd Hafiz bin Roslan", peranan: "Industri", quote: "Syarikat kami telah menyumbang untuk Wakaf Penyelidikan. Surat pengecualian cukai dihasilkan secara automatik — sangat cekap!", avatar: "MH" },
 ];
 
+function SectionHeader({
+  eyebrow,
+  title,
+  subtitle,
+  dark = false,
+}: {
+  eyebrow: string;
+  title: React.ReactNode;
+  subtitle?: string;
+  dark?: boolean;
+}) {
+  const eyebrowColor = dark ? "text-[#F9A825]" : "text-[#0A2FA6]";
+  const lineColor = dark ? "bg-[#F9A825]/70" : "bg-[#F9A825]";
+  const titleColor = dark ? "text-white" : "text-[#0F172A]";
+  const subColor = dark ? "text-white/75" : "text-[#64748B]";
+
+  return (
+    <div className="text-center max-w-2xl mx-auto">
+      <div className="inline-flex items-center gap-2.5 mb-4">
+        <span className={`h-px w-8 ${lineColor}`} aria-hidden="true" />
+        <span className={`text-xs font-semibold uppercase tracking-[0.18em] ${eyebrowColor}`}>
+          {eyebrow}
+        </span>
+        <span className={`h-px w-8 ${lineColor}`} aria-hidden="true" />
+      </div>
+      <h2 className={`border-b-0 pb-0 mb-0 text-3xl md:text-4xl font-bold tracking-tight leading-tight ${titleColor}`}>
+        {title}
+      </h2>
+      {subtitle && (
+        <p className={`mt-4 text-base leading-relaxed ${subColor}`}>{subtitle}</p>
+      )}
+    </div>
+  );
+}
+
 export default function LandingPage() {
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState<PtjType | "ALL">("ALL");
@@ -47,8 +82,8 @@ export default function LandingPage() {
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center overflow-hidden">
         <div
-          className="absolute inset-0 bg-center bg-cover animate-hero-zoom"
-          style={{ backgroundImage: `url(${CAMPUS_IMAGE})` }}
+          className="absolute inset-0 animate-hero-zoom"
+          style={{ backgroundImage: `url(${CAMPUS_IMAGE})`, backgroundSize: "auto 150%", backgroundPosition: "0% 20%", backgroundRepeat: "no-repeat" }}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-[#0A2FA6]/95 via-[#0A2FA6]/85 to-[#4D9FFF]/50" />
         <div className="relative z-10 max-w-7xl mx-auto px-6 pt-20 pb-48 md:pt-24 md:pb-56">
@@ -116,11 +151,12 @@ export default function LandingPage() {
       {/* PTj Tabs + Products */}
       <section className="py-16 bg-gradient-to-b from-white to-[#F8FAFC]">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-10">
-            <h2 className="text-3xl font-bold text-[#0F172A] mb-3">Produk Kebajikan UTHM</h2>
-            <p className="text-[#64748B] max-w-2xl mx-auto">
-              Pilih tabung atau dana yang ingin anda sumbangkan. Setiap sumbangan anda memberi impak nyata kepada komuniti UTHM.
-            </p>
+          <div className="mb-10">
+            <SectionHeader
+              eyebrow="Tabung & Dana"
+              title="Produk Kebajikan UTHM"
+              subtitle="Pilih tabung atau dana yang ingin anda sumbangkan. Setiap sumbangan anda memberi impak nyata kepada komuniti UTHM."
+            />
           </div>
 
           {/* PTj Tabs */}
@@ -248,9 +284,12 @@ export default function LandingPage() {
       {/* How It Works */}
       <section className="py-16 bg-gradient-to-b from-[#F8FAFC] to-white">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-[#0F172A] mb-3">Cara Menderma</h2>
-            <p className="text-[#64748B]">Proses yang mudah dan selamat dalam 4 langkah mudah</p>
+          <div className="mb-12">
+            <SectionHeader
+              eyebrow="Proses Mudah"
+              title="Cara Menderma"
+              subtitle="Proses yang mudah dan selamat dalam 4 langkah mudah."
+            />
           </div>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
             {[
@@ -280,8 +319,12 @@ export default function LandingPage() {
       {/* Testimonials */}
       <section className="py-16 bg-gradient-to-b from-white to-[#F8FAFC]">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-10">
-            <h2 className="text-3xl font-bold text-[#0F172A] mb-3">Apa Kata Penyumbang Kami</h2>
+          <div className="mb-10">
+            <SectionHeader
+              eyebrow="Suara Komuniti"
+              title="Apa Kata Penyumbang Kami"
+              subtitle="Pengalaman sebenar staf, alumni dan rakan industri yang telah menyumbang."
+            />
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {TESTIMONIALS.map((t, i) => (
@@ -304,25 +347,48 @@ export default function LandingPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-b from-[#1E40AF] to-[#1E3A8A]">
-        <div className="max-w-7xl mx-auto px-6 text-center">
-          <h2 className="text-3xl font-bold text-white mb-4">Mulakan Perjalanan Memberi Anda Hari Ini</h2>
-          <p className="text-white/80 mb-8 max-w-xl mx-auto">
-            Setiap sumbangan, besar atau kecil, memberi impak nyata kepada pelajar dan komuniti UTHM.
-          </p>
-          <div className="flex justify-center gap-4">
-            <button
-              onClick={() => navigate("/perkhidmatan")}
-              className="px-8 h-12 bg-[#F9A825] text-[#0F172A] font-bold rounded-[10px] hover:bg-[#F57F17] transition-colors"
+      <section className="relative py-20 overflow-hidden bg-gradient-to-br from-[#0A2FA6] via-[#1E40AF] to-[#1E3A8A]">
+        {/* Decorative glow — intentional depth, not a flat block */}
+        <div
+          className="pointer-events-none absolute -top-24 left-1/2 -translate-x-1/2 w-[520px] h-[520px] rounded-full opacity-30 blur-3xl"
+          style={{ background: "radial-gradient(circle, #F9A825 0%, transparent 70%)" }}
+          aria-hidden="true"
+        />
+        <div className="relative z-10 max-w-7xl mx-auto px-6">
+          <div className="max-w-2xl mx-auto flex flex-col items-center text-center">
+            <div
+              className="inline-flex items-center justify-center w-14 h-14 rounded-2xl mb-6"
+              style={{ background: "rgba(249,168,37,0.15)", border: "1px solid rgba(249,168,37,0.4)" }}
             >
-              Derma Sekarang
-            </button>
-            <button
-              onClick={() => navigate("/login")}
-              className="px-8 h-12 bg-transparent border-2 border-white text-white font-semibold rounded-[10px] hover:bg-white/10 transition-colors"
-            >
-              Log Masuk Pentadbir
-            </button>
+              <Heart className="w-6 h-6 text-[#F9A825]" fill="#F9A825" />
+            </div>
+            <div className="inline-flex items-center gap-2.5 mb-4">
+              <span className="h-px w-8 bg-[#F9A825]/70" aria-hidden="true" />
+              <span className="text-xs font-semibold uppercase tracking-[0.18em] text-[#F9A825]">Sertai Kami</span>
+              <span className="h-px w-8 bg-[#F9A825]/70" aria-hidden="true" />
+            </div>
+            <h2 className="border-b-0 pb-0 mb-0 text-3xl md:text-4xl font-bold tracking-tight leading-tight text-white">
+              Mulakan Perjalanan Memberi Anda Hari Ini
+            </h2>
+            <p className="mt-4 text-base leading-relaxed text-white/75">
+              Setiap sumbangan, besar atau kecil, memberi impak nyata kepada pelajar dan komuniti UTHM.
+            </p>
+            <div className="mt-8 flex flex-wrap justify-center gap-4">
+              <button
+                onClick={() => navigate("/perkhidmatan")}
+                className="inline-flex items-center gap-2 px-8 h-12 bg-[#F9A825] text-[#0F172A] font-bold rounded-[10px] shadow-lg hover:bg-[#F57F17] hover:-translate-y-0.5 transition-all"
+              >
+                <Heart className="w-5 h-5" />
+                Derma Sekarang
+              </button>
+              <button
+                onClick={() => navigate("/login")}
+                className="inline-flex items-center gap-2 px-8 h-12 bg-white/5 border-2 border-white/70 text-white font-semibold rounded-[10px] hover:bg-white/10 hover:border-white transition-colors"
+              >
+                Log Masuk Pentadbir
+                <ArrowRight className="w-4 h-4" />
+              </button>
+            </div>
           </div>
         </div>
       </section>
